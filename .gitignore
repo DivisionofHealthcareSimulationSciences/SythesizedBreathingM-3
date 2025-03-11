@@ -1,0 +1,7 @@
+
+# test suite for potential testing directories you might make, we could hard code the test directory in the future
+# but this is a good start
+/code/test/
+/code/Test/
+/test/
+/Test/
