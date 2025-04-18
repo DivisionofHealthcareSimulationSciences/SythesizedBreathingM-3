@@ -4,4 +4,15 @@
 /code/test/
 /code/Test/
 /test/
+<<<<<<< HEAD
 /Test/
+=======
+/Test/
+
+/data/BreathingSoundCapstoneData/CombinedDataSet/CombinedDataSet/
+
+/.env/
+
+#training artifacts
+/code/checkpoints/
+>>>>>>> 9edc439 (abaird-adding training files to gitignore becuase they are too big)
