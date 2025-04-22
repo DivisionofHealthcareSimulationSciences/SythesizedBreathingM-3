@@ -9,9 +9,9 @@ Original file is located at
 
 # Commented out IPython magic to ensure Python compatibility.
 # %matplotlib inline
-!pip install sounddevice
-!pip install noisereduce
-!apt-get install portaudio19-dev
+# !pip install sounddevice
+# !pip install noisereduce
+# !apt-get install portaudio19-dev
 
 from matplotlib import pyplot as plta
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox, TextArea
@@ -21,6 +21,7 @@ import numpy as np
 import pandas as pd
 import os
 import pickle
+import matplotlib.pyplot as plt
 
 import librosa
 import soundfile as sf
@@ -55,12 +56,9 @@ torch.backends.cudnn.deterministic = True
 """## DATA PRE-PROCESSING"""
 
 # Load metadata
-from google.colab import drive
-drive.mount('/content/drive')
-
-audio_dir = "/content/drive/My Drive/Breathing Sound Capstone Data/Combined Dataset"
-metadata_path = "/content/drive/My Drive/Breathing Sound Capstone Data/Metadata.csv"
-output_dir = "/content/drive/My Drive/Breathing Sound Capstone Data/Spectrograms"
+audio_dir = "D:/Development/audioGen/SythesizedBreathingM-3/data/BreathingSoundCapstoneData/CombinedDataset/CombinedDataset"
+metadata_path = "D:/Development/audioGen/SythesizedBreathingM-3/data/Metadata.csv"
+output_dir = "D:/Development/audioGen/SythesizedBreathingM-3/data/Spectrograms"
 
 metadata_df = pd.read_csv(metadata_path)
 metadata_df.set_index("filename", inplace=True)
@@ -213,50 +211,48 @@ for file_name in metadata_df.index:
 
 """Make sure audio works"""
 
-import pickle
-import matplotlib.pyplot as plt
-import numpy as np
-
-file_path = "/content/drive/My Drive/Breathing Sound Capstone Data/Spectrograms/101_1b1_Pr_sc_Meditron.wav.pkl"
-with open(file_path, "rb") as f:
-  data = pickle.load(f)
-
-metadata_for_sample = data['metadata']
-spectrogram_for_sample = data['spectrogram']
-
-og_min = data.get('original_min')
-og_max = data.get('original_max')
-
-age = metadata_for_sample.get("age", "Unknown")
-sex_code = metadata_for_sample.get("sex", "Unknown")
-diagnosis_code = metadata_for_sample.get("patient_diagnosis", "Unknown")
-ap_pos_code = metadata_for_sample.get("ap_pos", "Unknown")
-lateral_pos_code = metadata_for_sample.get("lateral_pos", "Unknown")
-
-# Decode values using the inverse lookup
-sex = inv_breath_sound['sex'].get(sex_code, sex_code)
-diagnosis = inv_breath_sound['patient_diagnosis'].get(diagnosis_code, diagnosis_code)
-ap_pos = inv_breath_sound['ap_pos'].get(ap_pos_code, ap_pos_code)
-lateral_pos = inv_breath_sound['lateral_pos'].get(lateral_pos_code, lateral_pos_code)
 
 
-metadata_str = f"Age: {age}\nSex: {sex}\nDiagnosis: {diagnosis}\nAP Pos: {ap_pos}\nLateral Pos: {lateral_pos}"
+# file_path = "/content/drive/My Drive/Breathing Sound Capstone Data/Spectrograms/101_1b1_Pr_sc_Meditron.wav.pkl"
+# with open(file_path, "rb") as f:
+#   data = pickle.load(f)
 
-plt.imshow(np.squeeze(spectrogram_for_sample), cmap="plasma")
+# metadata_for_sample = data['metadata']
+# spectrogram_for_sample = data['spectrogram']
 
-plt.figtext(0.15, 0.7, metadata_str, fontsize=12, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.7))
+# og_min = data.get('original_min')
+# og_max = data.get('original_max')
 
-plt.show()
+# age = metadata_for_sample.get("age", "Unknown")
+# sex_code = metadata_for_sample.get("sex", "Unknown")
+# diagnosis_code = metadata_for_sample.get("patient_diagnosis", "Unknown")
+# ap_pos_code = metadata_for_sample.get("ap_pos", "Unknown")
+# lateral_pos_code = metadata_for_sample.get("lateral_pos", "Unknown")
 
-from IPython.display import Audio
-audio = spec_to_audio(spectrogram_for_sample, og_min, og_max )
-#play_audio(audio)
-Audio(audio, rate=41100)
+# # Decode values using the inverse lookup
+# sex = inv_breath_sound['sex'].get(sex_code, sex_code)
+# diagnosis = inv_breath_sound['patient_diagnosis'].get(diagnosis_code, diagnosis_code)
+# ap_pos = inv_breath_sound['ap_pos'].get(ap_pos_code, ap_pos_code)
+# lateral_pos = inv_breath_sound['lateral_pos'].get(lateral_pos_code, lateral_pos_code)
+
+
+# metadata_str = f"Age: {age}\nSex: {sex}\nDiagnosis: {diagnosis}\nAP Pos: {ap_pos}\nLateral Pos: {lateral_pos}"
+
+# plt.imshow(np.squeeze(spectrogram_for_sample), cmap="plasma")
+
+# plt.figtext(0.15, 0.7, metadata_str, fontsize=12, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.7))
+
+# plt.show()
+
+# from IPython.display import Audio
+# audio = spec_to_audio(spectrogram_for_sample, og_min, og_max )
+# #play_audio(audio)
+# Audio(audio, rate=41100)
 
 X = []
 Y = []
 file_paths = []
-folder_path = "/content/drive/My Drive/Breathing Sound Capstone Data/Spectrograms/"
+folder_path = "D:/Development/audioGen/SythesizedBreathingM-3/data/Spectrograms"
 file_names = sorted(os.listdir(folder_path))
 for file_name in file_names:
     file_path = os.path.join(folder_path, file_name)
@@ -304,6 +300,7 @@ X_train, X_test, y_train, y_test =  train_test_split(X_arr, Y_arr, test_size=0.2
 #Data Shuffle
 
 indices = np.arange(len(X_train))
+testIndices = np.arange(len(X_test))
 np.random.shuffle(indices)
 x_train = X_train[indices]
 y_train = y_train[indices]
@@ -312,7 +309,7 @@ y_train = y_train[indices]
 batch_size = 128
 learning_rate = 0.0001
 hidden_size = 256 # Size of hidden layers
-num_epochs = 1000
+num_epochs = 100000
 input_size = 256 * 1285 # Make sure this matches actual size!
 labels_length = 5 # 5 labels total
 
@@ -348,20 +345,21 @@ lateral_pos = inv_breath_sound['lateral_pos'].get(metadata_for_sample[4])
 
 metadata_str = f"Age: {age}\nSex: {sex}\nDiagnosis: {diagnosis}\nAP Pos: {ap_pos}\nLateral Pos: {lateral_pos}"
 
-plt.imshow(np.squeeze(x_train[audio_index]), cmap="plasma")
+#plt.imshow(np.squeeze(x_train[audio_index]), cmap="plasma")
 
-plt.figtext(0.05, 0.7, metadata_str, fontsize=12, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.7))
 
-plt.show()
+#plt.figtext(0.05, 0.7, metadata_str, fontsize=12, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.7))
 
-from IPython.display import Audio
-mel_spectrogram = x_train[audio_index]
-audio = spec_to_audio(mel_spectrogram, -80,0)
-#play_audio(audio)
-Audio(audio, rate=41100)
+#plt.show()
 
-#sd.play(sound_audio, samplerate = sr)
-#sd.wait()
+# from IPython.display import Audio
+# mel_spectrogram = x_train[audio_index]
+# audio = spec_to_audio(mel_spectrogram, -80,0)
+# #play_audio(audio)
+# Audio(audio, rate=41100)
+
+# #sd.play(sound_audio, samplerate = sr)
+# #sd.wait()
 
 """## Utility functions
 
@@ -401,7 +399,7 @@ def plot_gallery(images, h, w, n_row=3, n_col=6):
         plt.imshow(images[i].reshape(h, w), cmap = "plasma")
     plt.show()
 
-def vae_loss_fn(x, recon_x, mu, logvar, recon_scale=1, kl_scale=0.001): # CHANGED TO NOT RETURN NAN VALUES
+def vae_loss_fn(x, recon_x, mu, logvar, recon_scale=1, kl_scale=0.01): # CHANGED TO NOT RETURN NAN VALUES
     logvar = torch.clamp(logvar, min=-10, max=10)
     #MEAN REDUCTION TO REDUCE MASSIVE LOSSES
     reconstruction_loss = F.mse_loss(recon_x, x, reduction='mean')
@@ -427,8 +425,8 @@ def evaluate(losses, autoencoder, dataloader, flatten=True):
         inp = inputs
         out = outputs
 
-    with torch.set_grad_enabled(False):
-        plot_gallery([inp[0].detach().cpu(),out[0].detach().cpu()],256,1285,1,2)
+    # with torch.set_grad_enabled(False):
+    #     plot_gallery([inp[0].detach().cpu(),out[0].detach().cpu()],256,1285,1,2)
 
     losses.append((sum(loss_sum)/len(loss_sum)).item())
 
@@ -502,7 +500,7 @@ def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs
 
                 optim.zero_grad()
                 x,mu,logvar = net(batch, labels)
-                loss = vae_loss_fn(batch, x[:, :input_size], mu, logvar, recon_scale=1.0, kl_scale=0.001)
+                loss = vae_loss_fn(batch, x[:, :input_size], mu, logvar, recon_scale=1.0, kl_scale=0.01)
                 loss.backward()
 
                 # GRADIENT CLIPPING
@@ -512,12 +510,16 @@ def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs
             evaluate(validation_losses, net, test_dataloader, flatten=True)
             pbar_outer.update(1)
             tqdm.write(log_template.format(ep=i+1, v_loss=validation_losses[i]))
-    plt.show()
+    #plt.show()
     return validation_losses
 
 cvae = CVAE(input_size).to(DEVICE)
 
 history = train_cvae(cvae, train_dataset, val_dataset)
+torch.save(cvae, 'D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle2.pt')
+
+cvae = torch.load('D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle2.pt', weights_only=False)
+cvae.eval()
 
 val_loss = history
 plt.figure(figsize=(15, 9))

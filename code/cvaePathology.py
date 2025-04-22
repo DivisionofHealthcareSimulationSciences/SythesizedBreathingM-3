@@ -7,6 +7,7 @@ import torch
 import torch.nn.functional as F
 from matplotlib import pyplot as plt
 from torch import nn
+from torchvision import transforms
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 
@@ -22,7 +23,7 @@ MAX_VAL = 1
 batch_size = 64
 learning_rate = 0.0005 
 hidden_size = 256 # Size of hidden layers
-num_epochs = 10**2
+num_epochs = 10**4 # Number of epochs to train for
 input_size = 256 * 313 # Make sure this matches actual size
 labels_length = 12 # 11 labels total, not sure why we have to add 1 here, they did this in the og code
 
@@ -121,7 +122,7 @@ def evaluate(losses, autoencoder, dataloader, flatten=True):
     losses.append((sum(loss_sum)/len(loss_sum)).item())
     
 class CVAE(nn.Module):
-    def __init__(self, input_size, hidden_size=256):
+    def __init__(self, input_size, hidden_size=hidden_size):
         super(CVAE, self).__init__()
         input_size_with_label = input_size + labels_length
         hidden_size += labels_length
@@ -194,6 +195,7 @@ def plot_gallery(images, h, w, n_row=3, n_col=6):
 
 def vae_loss_fn(x, recon_x, mu, logvar):
     reconstruction_loss = F.mse_loss(recon_x, x, reduction='sum')
+    #reconstruction_loss = F.binary_cross_entropy(recon_x, x, reduction='sum')
     KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
     return reconstruction_loss + KLD
 
@@ -233,6 +235,10 @@ if __name__ == "__main__":
     torch.manual_seed(SEED)
     torch.cuda.manual_seed(SEED)
     torch.backends.cudnn.deterministic = True
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize((0.5,), (0.5,)),
+    ])
 
     # Open data frame w metadata and filenames
     all_data = pd.read_csv('D:/Development/audioGen/SythesizedBreathingM-3/data/all_data.csv')
@@ -313,9 +319,9 @@ if __name__ == "__main__":
 
     history = train_cvae(cvae, train_dataset, val_dataset)
 
-    torch.save(cvae, 'D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaeBreathing.pt')
+    torch.save(cvae, 'D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaeBreathingnew.pt')
 
-    cvae = torch.load('D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaeBreathing.pt', weights_only=False)
+    cvae = torch.load('D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaeBreathingnew.pt', weights_only=False)
     cvae.eval()
 
     # Evaluate on test set  
