@@ -5,3 +5,13 @@
 /code/Test/
 /test/
 /Test/
+/Test/
+
+/data/BreathingSoundCapstoneData/CombinedDataSet/CombinedDataSet/
+/data/BreathingSoundCapstoneData/Spectrograms/
+/data/Spectrograms/
+/data/BreathingSoundCapstoneData/
+/.env/
+
+#training artifacts
+/code/checkpoints/

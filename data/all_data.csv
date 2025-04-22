@@ -1,0 +1,1026 @@
+,patient_number,age,sex,patient_diagnosis,ap_pos,lateral_pos,filename
+0,101,3,F,URTI,Anterior,Left,101_1b1_Al_sc_Meditron.wav
+1,101,3,F,URTI,Posterior,Right,101_1b1_Pr_sc_Meditron.wav
+2,102,0.75,F,Healthy,Anterior,Right,102_1b1_Ar_sc_Meditron.wav
+3,103,70,F,Asthma,Anterior,Right,103_2b2_Ar_mc_LittC2SE.wav
+4,104,70,F,COPD,Anterior,Left,104_1b1_Al_sc_Litt3200.wav
+5,104,70,F,COPD,Anterior,Right,104_1b1_Ar_sc_Litt3200.wav
+6,104,70,F,COPD,,Left,104_1b1_Ll_sc_Litt3200.wav
+7,104,70,F,COPD,,Right,104_1b1_Lr_sc_Litt3200.wav
+8,104,70,F,COPD,Posterior,Left,104_1b1_Pl_sc_Litt3200.wav
+9,104,70,F,COPD,Posterior,Right,104_1b1_Pr_sc_Litt3200.wav
+10,105,7,F,URTI,,,105_1b1_Tc_sc_Meditron.wav
+11,106,73,F,COPD,Posterior,Left,106_2b1_Pl_mc_LittC2SE.wav
+12,106,73,F,COPD,Posterior,Right,106_2b1_Pr_mc_LittC2SE.wav
+13,107,75,F,COPD,Anterior,Left,107_2b3_Al_mc_AKGC417L.wav
+14,107,75,F,COPD,Anterior,Right,107_2b3_Ar_mc_AKGC417L.wav
+15,107,75,F,COPD,,Left,107_2b3_Ll_mc_AKGC417L.wav
+16,107,75,F,COPD,,Right,107_2b3_Lr_mc_AKGC417L.wav
+17,107,75,F,COPD,Posterior,Left,107_2b3_Pl_mc_AKGC417L.wav
+18,107,75,F,COPD,Posterior,Right,107_2b3_Pr_mc_AKGC417L.wav
+19,107,75,F,COPD,,,107_2b3_Tc_mc_AKGC417L.wav
+20,107,75,F,COPD,Anterior,Left,107_2b4_Al_mc_AKGC417L.wav
+21,107,75,F,COPD,Anterior,Right,107_2b4_Ar_mc_AKGC417L.wav
+22,107,75,F,COPD,,Left,107_2b4_Ll_mc_AKGC417L.wav
+23,107,75,F,COPD,,Right,107_2b4_Lr_mc_AKGC417L.wav
+24,107,75,F,COPD,Posterior,Left,107_2b4_Pl_mc_AKGC417L.wav
+25,107,75,F,COPD,Posterior,Right,107_2b4_Pr_mc_AKGC417L.wav
+26,107,75,F,COPD,,,107_2b4_Tc_mc_AKGC417L.wav
+27,107,75,F,COPD,Anterior,Left,107_2b5_Al_mc_AKGC417L.wav
+28,107,75,F,COPD,Anterior,Right,107_2b5_Ar_mc_AKGC417L.wav
+29,107,75,F,COPD,,Left,107_2b5_Ll_mc_AKGC417L.wav
+30,107,75,F,COPD,,Right,107_2b5_Lr_mc_AKGC417L.wav
+31,107,75,F,COPD,Posterior,Left,107_2b5_Pl_mc_AKGC417L.wav
+32,107,75,F,COPD,Posterior,Right,107_2b5_Pr_mc_AKGC417L.wav
+33,107,75,F,COPD,,,107_2b5_Tc_mc_AKGC417L.wav
+34,107,75,F,COPD,Anterior,Left,107_3p2_Al_mc_AKGC417L.wav
+35,107,75,F,COPD,Anterior,Right,107_3p2_Ar_mc_AKGC417L.wav
+36,107,75,F,COPD,,Left,107_3p2_Ll_mc_AKGC417L.wav
+37,107,75,F,COPD,,Right,107_3p2_Lr_mc_AKGC417L.wav
+38,107,75,F,COPD,Posterior,Left,107_3p2_Pl_mc_AKGC417L.wav
+39,107,75,F,COPD,Posterior,Right,107_3p2_Pr_mc_AKGC417L.wav
+40,107,75,F,COPD,,,107_3p2_Tc_mc_AKGC417L.wav
+41,108,3,M,LRTI,Anterior,Left,108_1b1_Al_sc_Meditron.wav
+42,109,84,F,COPD,Anterior,Left,109_1b1_Al_sc_Litt3200.wav
+43,109,84,F,COPD,Anterior,Right,109_1b1_Ar_sc_Litt3200.wav
+44,109,84,F,COPD,,Left,109_1b1_Ll_sc_Litt3200.wav
+45,109,84,F,COPD,,Right,109_1b1_Lr_sc_Litt3200.wav
+46,109,84,F,COPD,Posterior,Left,109_1b1_Pl_sc_Litt3200.wav
+47,109,84,F,COPD,Posterior,Right,109_1b1_Pr_sc_Litt3200.wav
+48,110,75,M,COPD,Posterior,Right,110_1b1_Pr_sc_Meditron.wav
+49,110,75,M,COPD,Anterior,Left,110_1p1_Al_sc_Meditron.wav
+50,110,75,M,COPD,,Left,110_1p1_Ll_sc_Meditron.wav
+51,110,75,M,COPD,,Right,110_1p1_Lr_sc_Meditron.wav
+52,110,75,M,COPD,Posterior,Right,110_1p1_Pr_sc_Meditron.wav
+53,111,63,M,Bronchiectasis,,,111_1b2_Tc_sc_Meditron.wav
+54,111,63,M,Bronchiectasis,,,111_1b3_Tc_sc_Meditron.wav
+55,112,60,M,COPD,Anterior,Right,112_1b1_Ar_sc_Meditron.wav
+56,112,60,M,COPD,,Right,112_1b1_Lr_sc_Meditron.wav
+57,112,60,M,COPD,,Left,112_1p1_Ll_sc_Litt3200.wav
+58,112,60,M,COPD,Posterior,Left,112_1p1_Pl_sc_Litt3200.wav
+59,112,60,M,COPD,Posterior,Right,112_1p1_Pr_sc_Litt3200.wav
+60,113,58,M,COPD,Anterior,Left,113_1b1_Al_sc_Litt3200.wav
+61,113,58,M,COPD,Anterior,Right,113_1b1_Ar_sc_Litt3200.wav
+62,113,58,M,COPD,,Left,113_1b1_Ll_sc_Litt3200.wav
+63,113,58,M,COPD,,Right,113_1b1_Lr_sc_Litt3200.wav
+64,113,58,M,COPD,Posterior,Left,113_1b1_Pl_sc_Litt3200.wav
+65,113,58,M,COPD,Posterior,Right,113_1b1_Pr_sc_Litt3200.wav
+66,114,77,M,COPD,Anterior,Left,114_1b4_Al_mc_AKGC417L.wav
+67,114,77,M,COPD,Anterior,Right,114_1b4_Ar_mc_AKGC417L.wav
+68,114,77,M,COPD,,Right,114_1b4_Lr_mc_AKGC417L.wav
+69,114,77,M,COPD,Posterior,Left,114_1b4_Pl_mc_AKGC417L.wav
+70,114,77,M,COPD,Posterior,Right,114_1b4_Pr_mc_AKGC417L.wav
+71,115,0.58,M,LRTI,Anterior,Right,115_1b1_Ar_sc_Meditron.wav
+72,116,56,M,Bronchiectasis,Posterior,Left,116_1b2_Pl_sc_Meditron.wav
+73,116,56,M,Bronchiectasis,,,116_1b2_Tc_sc_Meditron.wav
+74,117,68,M,COPD,,,117_1b2_Tc_mc_LittC2SE.wav
+75,117,68,M,COPD,,,117_1b3_Tc_mc_LittC2SE.wav
+76,118,81,M,COPD,Anterior,Left,118_1b1_Al_sc_Litt3200.wav
+77,118,81,M,COPD,Anterior,Right,118_1b1_Ar_sc_Litt3200.wav
+78,118,81,M,COPD,,Left,118_1b1_Ll_sc_Litt3200.wav
+79,118,81,M,COPD,,Right,118_1b1_Lr_sc_Litt3200.wav
+80,118,81,M,COPD,Posterior,Left,118_1b1_Pl_sc_Litt3200.wav
+81,118,81,M,COPD,Posterior,Right,118_1b1_Pr_sc_Litt3200.wav
+82,119,2,F,URTI,Anterior,Right,119_1b1_Ar_sc_Meditron.wav
+83,120,78,M,COPD,Anterior,Left,120_1b1_Al_sc_Meditron.wav
+84,120,78,M,COPD,Anterior,Right,120_1b1_Ar_sc_Meditron.wav
+85,120,78,M,COPD,,Right,120_1b1_Lr_sc_Meditron.wav
+86,120,78,M,COPD,Posterior,Left,120_1b1_Pl_sc_Meditron.wav
+87,120,78,M,COPD,Posterior,Right,120_1b1_Pr_sc_Meditron.wav
+88,121,13,F,Healthy,,,121_1b1_Tc_sc_Meditron.wav
+89,121,13,F,Healthy,,,121_1p1_Tc_sc_Meditron.wav
+90,122,66,M,Pneumonia,Anterior,Left,122_2b1_Al_mc_LittC2SE.wav
+91,122,66,M,Pneumonia,Anterior,Right,122_2b1_Ar_mc_LittC2SE.wav
+92,122,66,M,Pneumonia,,,122_2b1_Tc_mc_LittC2SE.wav
+93,122,66,M,Pneumonia,Anterior,Left,122_2b2_Al_mc_LittC2SE.wav
+94,122,66,M,Pneumonia,Anterior,Right,122_2b2_Ar_mc_LittC2SE.wav
+95,122,66,M,Pneumonia,,,122_2b2_Tc_mc_LittC2SE.wav
+96,122,66,M,Pneumonia,Anterior,Left,122_2b3_Al_mc_LittC2SE.wav
+97,122,66,M,Pneumonia,Anterior,Right,122_2b3_Ar_mc_LittC2SE.wav
+98,122,66,M,Pneumonia,,,122_2b3_Tc_mc_LittC2SE.wav
+99,123,5,M,Healthy,Anterior,Left,123_1b1_Al_sc_Meditron.wav
+100,124,65,M,COPD,Anterior,Left,124_1b1_Al_sc_Litt3200.wav
+101,124,65,M,COPD,Anterior,Right,124_1b1_Ar_sc_Litt3200.wav
+102,124,65,M,COPD,,Left,124_1b1_Ll_sc_Litt3200.wav
+103,124,65,M,COPD,,Right,124_1b1_Lr_sc_Litt3200.wav
+104,124,65,M,COPD,Posterior,Left,124_1b1_Pl_sc_Litt3200.wav
+105,124,65,M,COPD,Posterior,Right,124_1b1_Pr_sc_Litt3200.wav
+106,125,14,M,Healthy,,,125_1b1_Tc_sc_Meditron.wav
+107,126,1,F,Healthy,Anterior,Left,126_1b1_Al_sc_Meditron.wav
+108,127,2,M,Healthy,Anterior,Right,127_1b1_Ar_sc_Meditron.wav
+109,128,65,F,COPD,,,128_1b3_Tc_mc_LittC2SE.wav
+110,129,6,M,URTI,Anterior,Right,129_1b1_Ar_sc_Meditron.wav
+111,130,85,F,COPD,Anterior,Left,130_1p2_Al_mc_AKGC417L.wav
+112,130,85,F,COPD,Anterior,Right,130_1p2_Ar_mc_AKGC417L.wav
+113,130,85,F,COPD,,Left,130_1p2_Ll_mc_AKGC417L.wav
+114,130,85,F,COPD,,Right,130_1p2_Lr_mc_AKGC417L.wav
+115,130,85,F,COPD,Posterior,Left,130_1p2_Pl_mc_AKGC417L.wav
+116,130,85,F,COPD,Posterior,Right,130_1p2_Pr_mc_AKGC417L.wav
+117,130,85,F,COPD,,,130_1p2_Tc_mc_AKGC417L.wav
+118,130,85,F,COPD,Anterior,Left,130_1p3_Al_mc_AKGC417L.wav
+119,130,85,F,COPD,Anterior,Right,130_1p3_Ar_mc_AKGC417L.wav
+120,130,85,F,COPD,,Left,130_1p3_Ll_mc_AKGC417L.wav
+121,130,85,F,COPD,,Right,130_1p3_Lr_mc_AKGC417L.wav
+122,130,85,F,COPD,Posterior,Left,130_1p3_Pl_mc_AKGC417L.wav
+123,130,85,F,COPD,Posterior,Right,130_1p3_Pr_mc_AKGC417L.wav
+124,130,85,F,COPD,,,130_1p3_Tc_mc_AKGC417L.wav
+125,130,85,F,COPD,Anterior,Left,130_1p4_Al_mc_AKGC417L.wav
+126,130,85,F,COPD,Anterior,Right,130_1p4_Ar_mc_AKGC417L.wav
+127,130,85,F,COPD,,Left,130_1p4_Ll_mc_AKGC417L.wav
+128,130,85,F,COPD,,Right,130_1p4_Lr_mc_AKGC417L.wav
+129,130,85,F,COPD,Posterior,Left,130_1p4_Pl_mc_AKGC417L.wav
+130,130,85,F,COPD,Posterior,Right,130_1p4_Pr_mc_AKGC417L.wav
+131,130,85,F,COPD,,,130_1p4_Tc_mc_AKGC417L.wav
+132,130,85,F,COPD,Anterior,Left,130_2b2_Al_mc_AKGC417L.wav
+133,130,85,F,COPD,Anterior,Right,130_2b2_Ar_mc_AKGC417L.wav
+134,130,85,F,COPD,,Left,130_2b2_Ll_mc_AKGC417L.wav
+135,130,85,F,COPD,,Right,130_2b2_Lr_mc_AKGC417L.wav
+136,130,85,F,COPD,Posterior,Left,130_2b2_Pl_mc_AKGC417L.wav
+137,130,85,F,COPD,Posterior,Right,130_2b2_Pr_mc_AKGC417L.wav
+138,130,85,F,COPD,,,130_2b2_Tc_mc_AKGC417L.wav
+139,130,85,F,COPD,Anterior,Left,130_2b3_Al_mc_AKGC417L.wav
+140,130,85,F,COPD,Anterior,Right,130_2b3_Ar_mc_AKGC417L.wav
+141,130,85,F,COPD,,Left,130_2b3_Ll_mc_AKGC417L.wav
+142,130,85,F,COPD,,Right,130_2b3_Lr_mc_AKGC417L.wav
+143,130,85,F,COPD,Posterior,Left,130_2b3_Pl_mc_AKGC417L.wav
+144,130,85,F,COPD,Posterior,Right,130_2b3_Pr_mc_AKGC417L.wav
+145,130,85,F,COPD,,,130_2b3_Tc_mc_AKGC417L.wav
+146,130,85,F,COPD,Anterior,Left,130_2b4_Al_mc_AKGC417L.wav
+147,130,85,F,COPD,Anterior,Right,130_2b4_Ar_mc_AKGC417L.wav
+148,130,85,F,COPD,,Left,130_2b4_Ll_mc_AKGC417L.wav
+149,130,85,F,COPD,,Right,130_2b4_Lr_mc_AKGC417L.wav
+150,130,85,F,COPD,Posterior,Left,130_2b4_Pl_mc_AKGC417L.wav
+151,130,85,F,COPD,Posterior,Left,130_2p3_Pl_mc_AKGC417L.wav
+152,130,85,F,COPD,Anterior,Left,130_2p5_Al_mc_AKGC417L.wav
+153,130,85,F,COPD,Anterior,Right,130_2p5_Ar_mc_AKGC417L.wav
+154,130,85,F,COPD,,Right,130_2p5_Lr_mc_AKGC417L.wav
+155,130,85,F,COPD,Posterior,Left,130_2p5_Pl_mc_AKGC417L.wav
+156,130,85,F,COPD,Posterior,Right,130_2p5_Pr_mc_AKGC417L.wav
+157,130,85,F,COPD,,,130_2p5_Tc_mc_AKGC417L.wav
+158,130,85,F,COPD,,Left,130_3b3_Ll_mc_AKGC417L.wav
+159,130,85,F,COPD,Anterior,Left,130_3b4_Al_mc_AKGC417L.wav
+160,130,85,F,COPD,Anterior,Right,130_3b4_Ar_mc_AKGC417L.wav
+161,130,85,F,COPD,,Right,130_3b4_Lr_mc_AKGC417L.wav
+162,130,85,F,COPD,Posterior,Left,130_3b4_Pl_mc_AKGC417L.wav
+163,130,85,F,COPD,Posterior,Right,130_3b4_Pr_mc_AKGC417L.wav
+164,130,85,F,COPD,Anterior,Left,130_3p2_Al_mc_AKGC417L.wav
+165,130,85,F,COPD,Anterior,Right,130_3p2_Ar_mc_AKGC417L.wav
+166,130,85,F,COPD,Posterior,Left,130_3p2_Pl_mc_AKGC417L.wav
+167,130,85,F,COPD,Posterior,Right,130_3p2_Pr_mc_AKGC417L.wav
+168,130,85,F,COPD,,,130_3p2_Tc_mc_AKGC417L.wav
+169,130,85,F,COPD,Anterior,Left,130_3p3_Al_mc_AKGC417L.wav
+170,130,85,F,COPD,Posterior,Left,130_3p3_Pl_mc_AKGC417L.wav
+171,130,85,F,COPD,Posterior,Right,130_3p3_Pr_mc_AKGC417L.wav
+172,130,85,F,COPD,,,130_3p3_Tc_mc_AKGC417L.wav
+173,130,85,F,COPD,Anterior,Left,130_3p4_Al_mc_AKGC417L.wav
+174,130,85,F,COPD,Posterior,Left,130_3p4_Pl_mc_AKGC417L.wav
+175,130,85,F,COPD,Posterior,Right,130_3p4_Pr_mc_AKGC417L.wav
+176,130,85,F,COPD,,,130_3p4_Tc_mc_AKGC417L.wav
+177,131,3,M,URTI,Anterior,Left,131_1b1_Al_sc_Meditron.wav
+178,132,71,M,COPD,,Right,132_2b1_Lr_mc_LittC2SE.wav
+179,132,71,M,COPD,,Right,132_2b2_Lr_mc_LittC2SE.wav
+180,133,68,M,COPD,Anterior,Left,133_2p2_Al_mc_AKGC417L.wav
+181,133,68,M,COPD,Anterior,Right,133_2p2_Ar_mc_AKGC417L.wav
+182,133,68,M,COPD,Posterior,Left,133_2p2_Pl_mc_AKGC417L.wav
+183,133,68,M,COPD,,,133_2p2_Tc_mc_AKGC417L.wav
+184,133,68,M,COPD,Anterior,Left,133_2p3_Al_mc_AKGC417L.wav
+185,133,68,M,COPD,Anterior,Right,133_2p3_Ar_mc_AKGC417L.wav
+186,133,68,M,COPD,Posterior,Left,133_2p3_Pl_mc_AKGC417L.wav
+187,133,68,M,COPD,Posterior,Right,133_2p3_Pr_mc_AKGC417L.wav
+188,133,68,M,COPD,,,133_2p3_Tc_mc_AKGC417L.wav
+189,133,68,M,COPD,Anterior,Left,133_2p4_Al_mc_AKGC417L.wav
+190,133,68,M,COPD,Anterior,Right,133_2p4_Ar_mc_AKGC417L.wav
+191,133,68,M,COPD,Posterior,Left,133_2p4_Pl_mc_AKGC417L.wav
+192,133,68,M,COPD,Posterior,Right,133_2p4_Pr_mc_AKGC417L.wav
+193,133,68,M,COPD,,,133_2p4_Tc_mc_AKGC417L.wav
+194,133,68,M,COPD,Anterior,Left,133_3p2_Al_mc_AKGC417L.wav
+195,133,68,M,COPD,Anterior,Right,133_3p2_Ar_mc_AKGC417L.wav
+196,133,68,M,COPD,Posterior,Left,133_3p2_Pl_mc_AKGC417L.wav
+197,133,68,M,COPD,Posterior,Right,133_3p2_Pr_mc_AKGC417L.wav
+198,133,68,M,COPD,,,133_3p4_Tc_mc_AKGC417L.wav
+199,134,61,M,COPD,Anterior,Left,134_2b1_Al_mc_LittC2SE.wav
+200,134,61,M,COPD,Anterior,Right,134_2b1_Ar_mc_LittC2SE.wav
+201,134,61,M,COPD,Anterior,Left,134_2b2_Al_mc_LittC2SE.wav
+202,134,61,M,COPD,Anterior,Right,134_2b2_Ar_mc_LittC2SE.wav
+203,134,61,M,COPD,Anterior,Right,134_2b3_Ar_mc_LittC2SE.wav
+204,135,70,M,Pneumonia,Anterior,Left,135_2b1_Al_mc_LittC2SE.wav
+205,135,70,M,Pneumonia,Anterior,Right,135_2b1_Ar_mc_LittC2SE.wav
+206,135,70,M,Pneumonia,Posterior,Left,135_2b1_Pl_mc_LittC2SE.wav
+207,135,70,M,Pneumonia,,,135_2b1_Tc_mc_LittC2SE.wav
+208,135,70,M,Pneumonia,Anterior,Left,135_2b2_Al_mc_LittC2SE.wav
+209,135,70,M,Pneumonia,Anterior,Right,135_2b2_Ar_mc_LittC2SE.wav
+210,135,70,M,Pneumonia,Posterior,Left,135_2b2_Pl_mc_LittC2SE.wav
+211,135,70,M,Pneumonia,,,135_2b2_Tc_mc_LittC2SE.wav
+212,135,70,M,Pneumonia,Anterior,Left,135_2b3_Al_mc_LittC2SE.wav
+213,135,70,M,Pneumonia,Anterior,Right,135_2b3_Ar_mc_LittC2SE.wav
+214,135,70,M,Pneumonia,Posterior,Left,135_2b3_Pl_mc_LittC2SE.wav
+215,135,70,M,Pneumonia,Posterior,Right,135_2b3_Pr_mc_LittC2SE.wav
+216,135,70,M,Pneumonia,,,135_2b3_Tc_mc_LittC2SE.wav
+217,136,5,M,Healthy,Anterior,Right,136_1b1_Ar_sc_Meditron.wav
+218,137,4,M,URTI,Anterior,Right,137_1b1_Ar_sc_Meditron.wav
+219,137,4,M,URTI,,Left,137_1b1_Ll_sc_Meditron.wav
+220,138,56,F,COPD,Anterior,Left,138_1p2_Al_mc_AKGC417L.wav
+221,138,56,F,COPD,Anterior,Right,138_1p2_Ar_mc_AKGC417L.wav
+222,138,56,F,COPD,,Left,138_1p2_Ll_mc_AKGC417L.wav
+223,138,56,F,COPD,,Right,138_1p2_Lr_mc_AKGC417L.wav
+224,138,56,F,COPD,Posterior,Left,138_1p2_Pl_mc_AKGC417L.wav
+225,138,56,F,COPD,Posterior,Right,138_1p2_Pr_mc_AKGC417L.wav
+226,138,56,F,COPD,,,138_1p2_Tc_mc_AKGC417L.wav
+227,138,56,F,COPD,Anterior,Left,138_1p3_Al_mc_AKGC417L.wav
+228,138,56,F,COPD,Anterior,Right,138_1p3_Ar_mc_AKGC417L.wav
+229,138,56,F,COPD,,Left,138_1p3_Ll_mc_AKGC417L.wav
+230,138,56,F,COPD,,Right,138_1p3_Lr_mc_AKGC417L.wav
+231,138,56,F,COPD,Posterior,Left,138_1p3_Pl_mc_AKGC417L.wav
+232,138,56,F,COPD,Posterior,Right,138_1p3_Pr_mc_AKGC417L.wav
+233,138,56,F,COPD,,,138_1p3_Tc_mc_AKGC417L.wav
+234,138,56,F,COPD,Anterior,Right,138_1p4_Ar_mc_AKGC417L.wav
+235,138,56,F,COPD,,Left,138_1p4_Ll_mc_AKGC417L.wav
+236,138,56,F,COPD,,Right,138_1p4_Lr_mc_AKGC417L.wav
+237,138,56,F,COPD,Posterior,Left,138_1p4_Pl_mc_AKGC417L.wav
+238,138,56,F,COPD,Posterior,Right,138_1p4_Pr_mc_AKGC417L.wav
+239,138,56,F,COPD,,,138_1p4_Tc_mc_AKGC417L.wav
+240,138,56,F,COPD,Anterior,Left,138_2p2_Al_mc_AKGC417L.wav
+241,138,56,F,COPD,Anterior,Right,138_2p2_Ar_mc_AKGC417L.wav
+242,138,56,F,COPD,,Left,138_2p2_Ll_mc_AKGC417L.wav
+243,138,56,F,COPD,,Right,138_2p2_Lr_mc_AKGC417L.wav
+244,138,56,F,COPD,Posterior,Left,138_2p2_Pl_mc_AKGC417L.wav
+245,138,56,F,COPD,Posterior,Right,138_2p2_Pr_mc_AKGC417L.wav
+246,138,56,F,COPD,,,138_2p2_Tc_mc_AKGC417L.wav
+247,139,61,M,COPD,Anterior,Left,139_1b1_Al_sc_Litt3200.wav
+248,139,61,M,COPD,Anterior,Right,139_1b1_Ar_sc_Litt3200.wav
+249,139,61,M,COPD,,Left,139_1b1_Ll_sc_Litt3200.wav
+250,139,61,M,COPD,,Right,139_1b1_Lr_sc_Litt3200.wav
+251,139,61,M,COPD,Posterior,Left,139_1b1_Pl_sc_Litt3200.wav
+252,139,61,M,COPD,Posterior,Right,139_1b1_Pr_sc_Litt3200.wav
+253,140,79,F,Pneumonia,,Left,140_2b2_Ll_mc_LittC2SE.wav
+254,140,79,F,Pneumonia,,,140_2b2_Tc_mc_LittC2SE.wav
+255,140,79,F,Pneumonia,,Left,140_2b3_Ll_mc_LittC2SE.wav
+256,140,79,F,Pneumonia,,,140_2b3_Tc_mc_LittC2SE.wav
+257,141,66,M,COPD,Posterior,Right,141_1b1_Pr_mc_LittC2SE.wav
+258,141,66,M,COPD,Anterior,Right,141_1b2_Ar_mc_LittC2SE.wav
+259,141,66,M,COPD,,Right,141_1b2_Lr_mc_LittC2SE.wav
+260,141,66,M,COPD,Posterior,Right,141_1b2_Pr_mc_LittC2SE.wav
+261,141,66,M,COPD,,,141_1b2_Tc_mc_LittC2SE.wav
+262,141,66,M,COPD,Anterior,Left,141_1b3_Al_mc_LittC2SE.wav
+263,141,66,M,COPD,Anterior,Right,141_1b3_Ar_mc_LittC2SE.wav
+264,141,66,M,COPD,Posterior,Right,141_1b3_Pr_mc_LittC2SE.wav
+265,142,78,M,COPD,Posterior,Left,142_1b1_Pl_mc_LittC2SE.wav
+266,143,0.25,F,Healthy,Anterior,Left,143_1b1_Al_sc_Meditron.wav
+267,144,3,M,Healthy,Anterior,Left,144_1b1_Al_sc_Meditron.wav
+268,144,3,M,Healthy,,,144_1b1_Tc_sc_Meditron.wav
+269,145,69,M,COPD,Anterior,Left,145_2b2_Al_mc_AKGC417L.wav
+270,145,69,M,COPD,Anterior,Right,145_2b2_Ar_mc_AKGC417L.wav
+271,145,69,M,COPD,,Right,145_2b2_Lr_mc_AKGC417L.wav
+272,145,69,M,COPD,Posterior,Right,145_2b2_Pr_mc_AKGC417L.wav
+273,145,69,M,COPD,Anterior,Right,145_3b2_Ar_mc_AKGC417L.wav
+274,145,69,M,COPD,,Right,145_3b2_Lr_mc_AKGC417L.wav
+275,145,69,M,COPD,Posterior,Left,145_3b4_Pl_mc_AKGC417L.wav
+276,146,67,M,COPD,Posterior,Left,146_2b2_Pl_mc_AKGC417L.wav
+277,146,67,M,COPD,Anterior,Left,146_2b4_Al_mc_AKGC417L.wav
+278,146,67,M,COPD,Anterior,Right,146_2b4_Ar_mc_AKGC417L.wav
+279,146,67,M,COPD,,Left,146_2b4_Ll_mc_AKGC417L.wav
+280,146,67,M,COPD,,Right,146_2b4_Lr_mc_AKGC417L.wav
+281,146,67,M,COPD,Posterior,Right,146_2b4_Pr_mc_AKGC417L.wav
+282,146,67,M,COPD,Anterior,Left,146_8p3_Al_mc_AKGC417L.wav
+283,146,67,M,COPD,Anterior,Right,146_8p3_Ar_mc_AKGC417L.wav
+284,146,67,M,COPD,,Right,146_8p3_Lr_mc_AKGC417L.wav
+285,146,67,M,COPD,Posterior,Left,146_8p3_Pl_mc_AKGC417L.wav
+286,146,67,M,COPD,Posterior,Right,146_8p3_Pr_mc_AKGC417L.wav
+287,147,77,M,COPD,,,147_1b2_Tc_mc_AKGC417L.wav
+288,147,77,M,COPD,,,147_1b3_Tc_mc_AKGC417L.wav
+289,147,77,M,COPD,,,147_1b4_Tc_mc_AKGC417L.wav
+290,147,77,M,COPD,Anterior,Left,147_2b2_Al_mc_AKGC417L.wav
+291,147,77,M,COPD,Anterior,Right,147_2b2_Ar_mc_AKGC417L.wav
+292,147,77,M,COPD,Posterior,Left,147_2b2_Pl_mc_AKGC417L.wav
+293,147,77,M,COPD,Anterior,Left,147_2b3_Al_mc_AKGC417L.wav
+294,147,77,M,COPD,Anterior,Right,147_2b3_Ar_mc_AKGC417L.wav
+295,147,77,M,COPD,,Left,147_2b3_Ll_mc_AKGC417L.wav
+296,147,77,M,COPD,,Right,147_2b3_Lr_mc_AKGC417L.wav
+297,147,77,M,COPD,Posterior,Left,147_2b3_Pl_mc_AKGC417L.wav
+298,147,77,M,COPD,Anterior,Left,147_2b4_Al_mc_AKGC417L.wav
+299,147,77,M,COPD,Anterior,Right,147_2b4_Ar_mc_AKGC417L.wav
+300,147,77,M,COPD,,Left,147_2b4_Ll_mc_AKGC417L.wav
+301,147,77,M,COPD,,Right,147_2b4_Lr_mc_AKGC417L.wav
+302,147,77,M,COPD,Posterior,Left,147_2b4_Pl_mc_AKGC417L.wav
+303,148,4,M,URTI,Anterior,Left,148_1b1_Al_sc_Meditron.wav
+304,149,0.67,M,Bronchiolitis,Anterior,Left,149_1b1_Al_sc_Meditron.wav
+305,149,0.67,M,Bronchiolitis,,Right,149_1b1_Lr_sc_Meditron.wav
+306,149,0.67,M,Bronchiolitis,Posterior,Left,149_1b1_Pl_sc_Meditron.wav
+307,150,0.67,F,URTI,Anterior,Left,150_1b2_Al_sc_Meditron.wav
+308,151,75,M,COPD,Anterior,Left,151_2p2_Al_mc_AKGC417L.wav
+309,151,75,M,COPD,Anterior,Right,151_2p2_Ar_mc_AKGC417L.wav
+310,151,75,M,COPD,,Left,151_2p2_Ll_mc_AKGC417L.wav
+311,151,75,M,COPD,,Right,151_2p2_Lr_mc_AKGC417L.wav
+312,151,75,M,COPD,Posterior,Left,151_2p2_Pl_mc_AKGC417L.wav
+313,151,75,M,COPD,Posterior,Right,151_2p2_Pr_mc_AKGC417L.wav
+314,151,75,M,COPD,,,151_2p2_Tc_mc_AKGC417L.wav
+315,151,75,M,COPD,Anterior,Left,151_2p3_Al_mc_AKGC417L.wav
+316,151,75,M,COPD,Anterior,Right,151_2p3_Ar_mc_AKGC417L.wav
+317,151,75,M,COPD,,Left,151_2p3_Ll_mc_AKGC417L.wav
+318,151,75,M,COPD,,Right,151_2p3_Lr_mc_AKGC417L.wav
+319,151,75,M,COPD,Posterior,Left,151_2p3_Pl_mc_AKGC417L.wav
+320,151,75,M,COPD,Posterior,Right,151_2p3_Pr_mc_AKGC417L.wav
+321,151,75,M,COPD,,,151_2p3_Tc_mc_AKGC417L.wav
+322,151,75,M,COPD,Anterior,Left,151_2p4_Al_mc_AKGC417L.wav
+323,151,75,M,COPD,Anterior,Right,151_2p4_Ar_mc_AKGC417L.wav
+324,151,75,M,COPD,,Left,151_2p4_Ll_mc_AKGC417L.wav
+325,151,75,M,COPD,,Right,151_2p4_Lr_mc_AKGC417L.wav
+326,151,75,M,COPD,Posterior,Left,151_2p4_Pl_mc_AKGC417L.wav
+327,151,75,M,COPD,Posterior,Right,151_2p4_Pr_mc_AKGC417L.wav
+328,151,75,M,COPD,,,151_2p4_Tc_mc_AKGC417L.wav
+329,151,75,M,COPD,Anterior,Left,151_3p2_Al_mc_AKGC417L.wav
+330,151,75,M,COPD,Anterior,Right,151_3p2_Ar_mc_AKGC417L.wav
+331,151,75,M,COPD,,Right,151_3p2_Lr_mc_AKGC417L.wav
+332,151,75,M,COPD,Posterior,Left,151_3p2_Pl_mc_AKGC417L.wav
+333,151,75,M,COPD,Posterior,Right,151_3p2_Pr_mc_AKGC417L.wav
+334,151,75,M,COPD,,,151_3p2_Tc_mc_AKGC417L.wav
+335,151,75,M,COPD,,Left,151_3p3_Ll_mc_AKGC417L.wav
+336,152,16,M,Healthy,Anterior,Left,152_1b1_Al_sc_Meditron.wav
+337,153,3,M,Healthy,Anterior,Left,153_1b1_Al_sc_Meditron.wav
+338,154,65,M,COPD,Anterior,Left,154_1b3_Al_mc_AKGC417L.wav
+339,154,65,M,COPD,Anterior,Right,154_1b3_Ar_mc_AKGC417L.wav
+340,154,65,M,COPD,,Left,154_1b3_Ll_mc_AKGC417L.wav
+341,154,65,M,COPD,,Right,154_1b3_Lr_mc_AKGC417L.wav
+342,154,65,M,COPD,Posterior,Left,154_1b3_Pl_mc_AKGC417L.wav
+343,154,65,M,COPD,Posterior,Right,154_1b3_Pr_mc_AKGC417L.wav
+344,154,65,M,COPD,,,154_1b3_Tc_mc_AKGC417L.wav
+345,154,65,M,COPD,Anterior,Left,154_2b4_Al_mc_AKGC417L.wav
+346,154,65,M,COPD,Anterior,Right,154_2b4_Ar_mc_AKGC417L.wav
+347,154,65,M,COPD,,Left,154_2b4_Ll_mc_AKGC417L.wav
+348,154,65,M,COPD,,Right,154_2b4_Lr_mc_AKGC417L.wav
+349,154,65,M,COPD,Posterior,Left,154_2b4_Pl_mc_AKGC417L.wav
+350,154,65,M,COPD,Posterior,Right,154_2b4_Pr_mc_AKGC417L.wav
+351,154,65,M,COPD,,,154_2b4_Tc_mc_AKGC417L.wav
+352,154,65,M,COPD,Anterior,Left,154_3b3_Al_mc_AKGC417L.wav
+353,154,65,M,COPD,Anterior,Right,154_3b3_Ar_mc_AKGC417L.wav
+354,154,65,M,COPD,,Left,154_3b3_Ll_mc_AKGC417L.wav
+355,154,65,M,COPD,Anterior,Left,154_4b4_Al_mc_AKGC417L.wav
+356,154,65,M,COPD,Anterior,Right,154_4b4_Ar_mc_AKGC417L.wav
+357,154,65,M,COPD,,Left,154_4b4_Ll_mc_AKGC417L.wav
+358,154,65,M,COPD,,Right,154_4b4_Lr_mc_AKGC417L.wav
+359,154,65,M,COPD,Posterior,Left,154_4b4_Pl_mc_AKGC417L.wav
+360,154,65,M,COPD,Posterior,Right,154_4b4_Pr_mc_AKGC417L.wav
+361,155,69,M,COPD,Anterior,Left,155_2b1_Al_mc_LittC2SE.wav
+362,156,80,M,COPD,Anterior,Left,156_2b3_Al_mc_AKGC417L.wav
+363,156,80,M,COPD,Anterior,Right,156_2b3_Ar_mc_AKGC417L.wav
+364,156,80,M,COPD,,Left,156_2b3_Ll_mc_AKGC417L.wav
+365,156,80,M,COPD,,Right,156_2b3_Lr_mc_AKGC417L.wav
+366,156,80,M,COPD,Posterior,Left,156_2b3_Pl_mc_AKGC417L.wav
+367,156,80,M,COPD,Posterior,Right,156_2b3_Pr_mc_AKGC417L.wav
+368,156,80,M,COPD,Anterior,Left,156_5b3_Al_mc_AKGC417L.wav
+369,156,80,M,COPD,Anterior,Right,156_5b3_Ar_mc_AKGC417L.wav
+370,156,80,M,COPD,,Left,156_5b3_Ll_mc_AKGC417L.wav
+371,156,80,M,COPD,,Right,156_5b3_Lr_mc_AKGC417L.wav
+372,156,80,M,COPD,Posterior,Left,156_5b3_Pl_mc_AKGC417L.wav
+373,156,80,M,COPD,Posterior,Right,156_5b3_Pr_mc_AKGC417L.wav
+374,156,80,M,COPD,Anterior,Left,156_8b3_Al_mc_AKGC417L.wav
+375,156,80,M,COPD,Anterior,Right,156_8b3_Ar_mc_AKGC417L.wav
+376,156,80,M,COPD,,Left,156_8b3_Ll_mc_AKGC417L.wav
+377,156,80,M,COPD,,Right,156_8b3_Lr_mc_AKGC417L.wav
+378,156,80,M,COPD,Posterior,Left,156_8b3_Pl_mc_AKGC417L.wav
+379,157,62,M,COPD,Anterior,Left,157_1b1_Al_sc_Meditron.wav
+380,157,62,M,COPD,Anterior,Right,157_1b1_Ar_sc_Meditron.wav
+381,157,62,M,COPD,,Right,157_1b1_Lr_sc_Meditron.wav
+382,157,62,M,COPD,Posterior,Left,157_1b1_Pl_sc_Meditron.wav
+383,157,62,M,COPD,Posterior,Right,157_1b1_Pr_sc_Meditron.wav
+384,158,63,M,COPD,Anterior,Right,158_1b3_Ar_mc_LittC2SE.wav
+385,158,63,M,COPD,Anterior,Left,158_1p2_Al_mc_AKGC417L.wav
+386,158,63,M,COPD,Anterior,Right,158_1p2_Ar_mc_AKGC417L.wav
+387,158,63,M,COPD,,Left,158_1p2_Ll_mc_AKGC417L.wav
+388,158,63,M,COPD,,Right,158_1p2_Lr_mc_AKGC417L.wav
+389,158,63,M,COPD,Posterior,Left,158_1p2_Pl_mc_AKGC417L.wav
+390,158,63,M,COPD,Posterior,Right,158_1p2_Pr_mc_AKGC417L.wav
+391,158,63,M,COPD,,,158_1p2_Tc_mc_AKGC417L.wav
+392,158,63,M,COPD,Anterior,Left,158_1p3_Al_mc_AKGC417L.wav
+393,158,63,M,COPD,Anterior,Right,158_1p3_Ar_mc_AKGC417L.wav
+394,158,63,M,COPD,,Left,158_1p3_Ll_mc_AKGC417L.wav
+395,158,63,M,COPD,,Right,158_1p3_Lr_mc_AKGC417L.wav
+396,158,63,M,COPD,Posterior,Left,158_1p3_Pl_mc_AKGC417L.wav
+397,158,63,M,COPD,Posterior,Right,158_1p3_Pr_mc_AKGC417L.wav
+398,158,63,M,COPD,,,158_1p3_Tc_mc_AKGC417L.wav
+399,158,63,M,COPD,Anterior,Left,158_1p4_Al_mc_AKGC417L.wav
+400,158,63,M,COPD,Anterior,Right,158_1p4_Ar_mc_AKGC417L.wav
+401,158,63,M,COPD,,Right,158_1p4_Lr_mc_AKGC417L.wav
+402,158,63,M,COPD,Posterior,Left,158_1p4_Pl_mc_AKGC417L.wav
+403,158,63,M,COPD,Posterior,Right,158_1p4_Pr_mc_AKGC417L.wav
+404,158,63,M,COPD,,,158_1p4_Tc_mc_AKGC417L.wav
+405,158,63,M,COPD,Anterior,Right,158_2p2_Ar_mc_AKGC417L.wav
+406,158,63,M,COPD,,Right,158_2p3_Lr_mc_AKGC417L.wav
+407,158,63,M,COPD,,,158_2p3_Tc_mc_AKGC417L.wav
+408,159,0.83,F,Healthy,Anterior,Left,159_1b1_Al_sc_Meditron.wav
+409,159,0.83,F,Healthy,Anterior,Right,159_1b1_Ar_sc_Meditron.wav
+410,159,0.83,F,Healthy,,Left,159_1b1_Ll_sc_Meditron.wav
+411,159,0.83,F,Healthy,Posterior,Right,159_1b1_Pr_sc_Meditron.wav
+412,160,74,M,COPD,Anterior,Left,160_1b2_Al_mc_AKGC417L.wav
+413,160,74,M,COPD,Anterior,Right,160_1b2_Ar_mc_AKGC417L.wav
+414,160,74,M,COPD,,Right,160_1b2_Lr_mc_AKGC417L.wav
+415,160,74,M,COPD,Posterior,Left,160_1b2_Pl_mc_AKGC417L.wav
+416,160,74,M,COPD,Posterior,Right,160_1b2_Pr_mc_AKGC417L.wav
+417,160,74,M,COPD,,,160_1b2_Tc_mc_AKGC417L.wav
+418,160,74,M,COPD,Anterior,Left,160_1b3_Al_mc_AKGC417L.wav
+419,160,74,M,COPD,Anterior,Right,160_1b3_Ar_mc_AKGC417L.wav
+420,160,74,M,COPD,,Right,160_1b3_Lr_mc_AKGC417L.wav
+421,160,74,M,COPD,Posterior,Left,160_1b3_Pl_mc_AKGC417L.wav
+422,160,74,M,COPD,Posterior,Right,160_1b3_Pr_mc_AKGC417L.wav
+423,160,74,M,COPD,,,160_1b3_Tc_mc_AKGC417L.wav
+424,160,74,M,COPD,Anterior,Left,160_1b4_Al_mc_AKGC417L.wav
+425,160,74,M,COPD,Anterior,Right,160_1b4_Ar_mc_AKGC417L.wav
+426,160,74,M,COPD,,Right,160_1b4_Lr_mc_AKGC417L.wav
+427,160,74,M,COPD,Posterior,Left,160_1b4_Pl_mc_AKGC417L.wav
+428,160,74,M,COPD,Posterior,Right,160_1b4_Pr_mc_AKGC417L.wav
+429,160,74,M,COPD,,,160_1b4_Tc_mc_AKGC417L.wav
+430,160,74,M,COPD,,Right,160_2b3_Lr_mc_AKGC417L.wav
+431,160,74,M,COPD,Anterior,Right,160_2b4_Ar_mc_AKGC417L.wav
+432,160,74,M,COPD,Posterior,Left,160_2b4_Pl_mc_AKGC417L.wav
+433,160,74,M,COPD,Posterior,Right,160_2b4_Pr_mc_AKGC417L.wav
+434,160,74,M,COPD,,,160_2b4_Tc_mc_AKGC417L.wav
+435,161,2,F,Bronchiolitis,Anterior,Left,161_1b1_Al_sc_Meditron.wav
+436,161,2,F,Bronchiolitis,Posterior,Left,161_1b1_Pl_sc_Meditron.wav
+437,162,67,F,COPD,Anterior,Left,162_1b2_Al_mc_AKGC417L.wav
+438,162,67,F,COPD,Anterior,Right,162_1b2_Ar_mc_AKGC417L.wav
+439,162,67,F,COPD,,Left,162_1b2_Ll_mc_AKGC417L.wav
+440,162,67,F,COPD,,Right,162_1b2_Lr_mc_AKGC417L.wav
+441,162,67,F,COPD,Posterior,Left,162_1b2_Pl_mc_AKGC417L.wav
+442,162,67,F,COPD,Posterior,Right,162_1b2_Pr_mc_AKGC417L.wav
+443,162,67,F,COPD,,,162_1b2_Tc_mc_AKGC417L.wav
+444,162,67,F,COPD,Anterior,Left,162_2b2_Al_mc_AKGC417L.wav
+445,162,67,F,COPD,Anterior,Right,162_2b2_Ar_mc_AKGC417L.wav
+446,162,67,F,COPD,Posterior,Left,162_2b2_Pl_mc_AKGC417L.wav
+447,162,67,F,COPD,Posterior,Right,162_2b2_Pr_mc_AKGC417L.wav
+448,162,67,F,COPD,,,162_2b2_Tc_mc_AKGC417L.wav
+449,162,67,F,COPD,Anterior,Left,162_2b3_Al_mc_AKGC417L.wav
+450,162,67,F,COPD,Anterior,Right,162_2b3_Ar_mc_AKGC417L.wav
+451,162,67,F,COPD,,Right,162_2b3_Lr_mc_AKGC417L.wav
+452,162,67,F,COPD,Posterior,Left,162_2b3_Pl_mc_AKGC417L.wav
+453,162,67,F,COPD,Posterior,Right,162_2b3_Pr_mc_AKGC417L.wav
+454,162,67,F,COPD,,,162_2b3_Tc_mc_AKGC417L.wav
+455,162,67,F,COPD,Anterior,Left,162_2b4_Al_mc_AKGC417L.wav
+456,162,67,F,COPD,Anterior,Right,162_2b4_Ar_mc_AKGC417L.wav
+457,162,67,F,COPD,,Right,162_2b4_Lr_mc_AKGC417L.wav
+458,162,67,F,COPD,Posterior,Left,162_2b4_Pl_mc_AKGC417L.wav
+459,162,67,F,COPD,Posterior,Right,162_2b4_Pr_mc_AKGC417L.wav
+460,162,67,F,COPD,,,162_2b4_Tc_mc_AKGC417L.wav
+461,163,62,M,COPD,Anterior,Left,163_2b2_Al_mc_AKGC417L.wav
+462,163,62,M,COPD,Anterior,Right,163_2b2_Ar_mc_AKGC417L.wav
+463,163,62,M,COPD,,Left,163_2b2_Ll_mc_AKGC417L.wav
+464,163,62,M,COPD,,Right,163_2b2_Lr_mc_AKGC417L.wav
+465,163,62,M,COPD,Posterior,Left,163_2b2_Pl_mc_AKGC417L.wav
+466,163,62,M,COPD,Posterior,Right,163_2b2_Pr_mc_AKGC417L.wav
+467,163,62,M,COPD,,,163_2b2_Tc_mc_AKGC417L.wav
+468,163,62,M,COPD,Anterior,Left,163_8b3_Al_mc_AKGC417L.wav
+469,163,62,M,COPD,Anterior,Right,163_8b3_Ar_mc_AKGC417L.wav
+470,163,62,M,COPD,,Left,163_8b3_Ll_mc_AKGC417L.wav
+471,163,62,M,COPD,,Right,163_8b3_Lr_mc_AKGC417L.wav
+472,163,62,M,COPD,Posterior,Left,163_8b3_Pl_mc_AKGC417L.wav
+473,163,62,M,COPD,Posterior,Right,163_8b3_Pr_mc_AKGC417L.wav
+474,164,1,M,URTI,,Left,164_1b1_Ll_sc_Meditron.wav
+475,165,2,F,URTI,Anterior,Right,165_1b1_Ar_sc_Meditron.wav
+476,165,2,F,URTI,Posterior,Left,165_1b1_Pl_sc_Meditron.wav
+477,165,2,F,URTI,Posterior,Right,165_1b1_Pr_sc_Meditron.wav
+478,166,71,M,COPD,Anterior,Left,166_1p1_Al_sc_Meditron.wav
+479,166,71,M,COPD,Anterior,Right,166_1p1_Ar_sc_Meditron.wav
+480,166,71,M,COPD,,Left,166_1p1_Ll_sc_Meditron.wav
+481,166,71,M,COPD,Posterior,Left,166_1p1_Pl_sc_Meditron.wav
+482,166,71,M,COPD,Posterior,Right,166_1p1_Pr_sc_Meditron.wav
+483,167,1,F,Bronchiolitis,Anterior,Left,167_1b1_Al_sc_Meditron.wav
+484,167,1,F,Bronchiolitis,Posterior,Right,167_1b1_Pr_sc_Meditron.wav
+485,168,19,F,Bronchiectasis,Anterior,Left,168_1b1_Al_sc_Meditron.wav
+486,169,50,F,Bronchiectasis,,Right,169_1b1_Lr_sc_Meditron.wav
+487,169,50,F,Bronchiectasis,,Left,169_1b2_Ll_sc_Meditron.wav
+488,170,79,M,COPD,Anterior,Left,170_1b2_Al_mc_AKGC417L.wav
+489,170,79,M,COPD,Anterior,Right,170_1b2_Ar_mc_AKGC417L.wav
+490,170,79,M,COPD,,Right,170_1b2_Lr_mc_AKGC417L.wav
+491,170,79,M,COPD,Posterior,Left,170_1b2_Pl_mc_AKGC417L.wav
+492,170,79,M,COPD,Posterior,Right,170_1b2_Pr_mc_AKGC417L.wav
+493,170,79,M,COPD,,,170_1b2_Tc_mc_AKGC417L.wav
+494,170,79,M,COPD,Anterior,Left,170_1b3_Al_mc_AKGC417L.wav
+495,170,79,M,COPD,Anterior,Right,170_1b3_Ar_mc_AKGC417L.wav
+496,170,79,M,COPD,,Left,170_1b3_Ll_mc_AKGC417L.wav
+497,170,79,M,COPD,,Right,170_1b3_Lr_mc_AKGC417L.wav
+498,170,79,M,COPD,Posterior,Left,170_1b3_Pl_mc_AKGC417L.wav
+499,170,79,M,COPD,Posterior,Right,170_1b3_Pr_mc_AKGC417L.wav
+500,170,79,M,COPD,,,170_1b3_Tc_mc_AKGC417L.wav
+501,170,79,M,COPD,Anterior,Left,170_1b4_Al_mc_AKGC417L.wav
+502,170,79,M,COPD,Anterior,Right,170_1b4_Ar_mc_AKGC417L.wav
+503,170,79,M,COPD,,Right,170_1b4_Lr_mc_AKGC417L.wav
+504,170,79,M,COPD,Posterior,Left,170_1b4_Pl_mc_AKGC417L.wav
+505,170,79,M,COPD,Posterior,Right,170_1b4_Pr_mc_AKGC417L.wav
+506,170,79,M,COPD,,,170_1b4_Tc_mc_AKGC417L.wav
+507,170,79,M,COPD,Anterior,Left,170_2b2_Al_mc_AKGC417L.wav
+508,170,79,M,COPD,Anterior,Right,170_2b2_Ar_mc_AKGC417L.wav
+509,170,79,M,COPD,,Right,170_2b2_Lr_mc_AKGC417L.wav
+510,170,79,M,COPD,Posterior,Left,170_2b2_Pl_mc_AKGC417L.wav
+511,170,79,M,COPD,Posterior,Right,170_2b2_Pr_mc_AKGC417L.wav
+512,170,79,M,COPD,,,170_2b2_Tc_mc_AKGC417L.wav
+513,171,9,M,Healthy,Anterior,Left,171_1b1_Al_sc_Meditron.wav
+514,172,73,M,COPD,Anterior,Left,172_1b3_Al_mc_AKGC417L.wav
+515,172,73,M,COPD,Anterior,Right,172_1b3_Ar_mc_AKGC417L.wav
+516,172,73,M,COPD,,Left,172_1b3_Ll_mc_AKGC417L.wav
+517,172,73,M,COPD,,Right,172_1b3_Lr_mc_AKGC417L.wav
+518,172,73,M,COPD,Posterior,Left,172_1b3_Pl_mc_AKGC417L.wav
+519,172,73,M,COPD,Posterior,Right,172_1b3_Pr_mc_AKGC417L.wav
+520,172,73,M,COPD,,,172_1b3_Tc_mc_AKGC417L.wav
+521,172,73,M,COPD,Anterior,Left,172_1b4_Al_mc_AKGC417L.wav
+522,172,73,M,COPD,Anterior,Right,172_1b4_Ar_mc_AKGC417L.wav
+523,172,73,M,COPD,,Left,172_1b4_Ll_mc_AKGC417L.wav
+524,172,73,M,COPD,,Right,172_1b4_Lr_mc_AKGC417L.wav
+525,172,73,M,COPD,Posterior,Left,172_1b4_Pl_mc_AKGC417L.wav
+526,172,73,M,COPD,Posterior,Right,172_1b4_Pr_mc_AKGC417L.wav
+527,172,73,M,COPD,,,172_1b4_Tc_mc_AKGC417L.wav
+528,172,73,M,COPD,Anterior,Left,172_1b5_Al_mc_AKGC417L.wav
+529,172,73,M,COPD,Anterior,Right,172_1b5_Ar_mc_AKGC417L.wav
+530,172,73,M,COPD,,Left,172_1b5_Ll_mc_AKGC417L.wav
+531,172,73,M,COPD,,Right,172_1b5_Lr_mc_AKGC417L.wav
+532,172,73,M,COPD,Posterior,Left,172_1b5_Pl_mc_AKGC417L.wav
+533,172,73,M,COPD,Posterior,Right,172_1b5_Pr_mc_AKGC417L.wav
+534,172,73,M,COPD,,,172_1b5_Tc_mc_AKGC417L.wav
+535,172,73,M,COPD,Anterior,Left,172_2b5_Al_mc_AKGC417L.wav
+536,172,73,M,COPD,Anterior,Right,172_2b5_Ar_mc_AKGC417L.wav
+537,172,73,M,COPD,,Right,172_2b5_Lr_mc_AKGC417L.wav
+538,172,73,M,COPD,Posterior,Left,172_2b5_Pl_mc_AKGC417L.wav
+539,172,73,M,COPD,Posterior,Right,172_2b5_Pr_mc_AKGC417L.wav
+540,172,73,M,COPD,,,172_2b5_Tc_mc_AKGC417L.wav
+541,173,3,M,Bronchiolitis,Anterior,Left,173_1b1_Al_sc_Meditron.wav
+542,174,68,M,COPD,Anterior,Right,174_1p2_Ar_mc_AKGC417L.wav
+543,174,68,M,COPD,,Left,174_1p2_Ll_mc_AKGC417L.wav
+544,174,68,M,COPD,,Right,174_1p2_Lr_mc_AKGC417L.wav
+545,174,68,M,COPD,Posterior,Left,174_1p2_Pl_mc_AKGC417L.wav
+546,174,68,M,COPD,Posterior,Right,174_1p2_Pr_mc_AKGC417L.wav
+547,174,68,M,COPD,,,174_1p2_Tc_mc_AKGC417L.wav
+548,174,68,M,COPD,Anterior,Right,174_1p3_Ar_mc_AKGC417L.wav
+549,174,68,M,COPD,,Left,174_1p3_Ll_mc_AKGC417L.wav
+550,174,68,M,COPD,,Right,174_1p3_Lr_mc_AKGC417L.wav
+551,174,68,M,COPD,Posterior,Left,174_1p3_Pl_mc_AKGC417L.wav
+552,174,68,M,COPD,Posterior,Right,174_1p3_Pr_mc_AKGC417L.wav
+553,174,68,M,COPD,,,174_1p3_Tc_mc_AKGC417L.wav
+554,174,68,M,COPD,Anterior,Right,174_1p4_Ar_mc_AKGC417L.wav
+555,174,68,M,COPD,,Left,174_1p4_Ll_mc_AKGC417L.wav
+556,174,68,M,COPD,,Right,174_1p4_Lr_mc_AKGC417L.wav
+557,174,68,M,COPD,Posterior,Left,174_1p4_Pl_mc_AKGC417L.wav
+558,174,68,M,COPD,Posterior,Right,174_1p4_Pr_mc_AKGC417L.wav
+559,174,68,M,COPD,,,174_1p4_Tc_mc_AKGC417L.wav
+560,174,68,M,COPD,Anterior,Left,174_2p3_Al_mc_AKGC417L.wav
+561,174,68,M,COPD,Anterior,Right,174_2p3_Ar_mc_AKGC417L.wav
+562,174,68,M,COPD,Posterior,Left,174_2p3_Pl_mc_AKGC417L.wav
+563,174,68,M,COPD,Posterior,Right,174_2p3_Pr_mc_AKGC417L.wav
+564,174,68,M,COPD,,,174_2p3_Tc_mc_AKGC417L.wav
+565,175,63,M,COPD,Anterior,Left,175_1b1_Al_sc_Litt3200.wav
+566,175,63,M,COPD,Anterior,Right,175_1b1_Ar_sc_Litt3200.wav
+567,175,63,M,COPD,,Left,175_1b1_Ll_sc_Litt3200.wav
+568,175,63,M,COPD,,Right,175_1b1_Lr_sc_Litt3200.wav
+569,175,63,M,COPD,Posterior,Left,175_1b1_Pl_sc_Litt3200.wav
+570,175,63,M,COPD,Posterior,Right,175_1b1_Pr_sc_Litt3200.wav
+571,176,65,M,COPD,Anterior,Left,176_1b3_Al_mc_AKGC417L.wav
+572,176,65,M,COPD,Anterior,Right,176_1b3_Ar_mc_AKGC417L.wav
+573,176,65,M,COPD,,Left,176_1b3_Ll_mc_AKGC417L.wav
+574,176,65,M,COPD,,Right,176_1b3_Lr_mc_AKGC417L.wav
+575,176,65,M,COPD,Posterior,Left,176_1b3_Pl_mc_AKGC417L.wav
+576,176,65,M,COPD,Posterior,Right,176_1b3_Pr_mc_AKGC417L.wav
+577,176,65,M,COPD,,,176_1b3_Tc_mc_AKGC417L.wav
+578,176,65,M,COPD,Anterior,Left,176_1b4_Al_mc_AKGC417L.wav
+579,176,65,M,COPD,Anterior,Right,176_1b4_Ar_mc_AKGC417L.wav
+580,176,65,M,COPD,,Left,176_1b4_Ll_mc_AKGC417L.wav
+581,176,65,M,COPD,,Right,176_1b4_Lr_mc_AKGC417L.wav
+582,176,65,M,COPD,Posterior,Left,176_1b4_Pl_mc_AKGC417L.wav
+583,176,65,M,COPD,Posterior,Right,176_1b4_Pr_mc_AKGC417L.wav
+584,176,65,M,COPD,,,176_1b4_Tc_mc_AKGC417L.wav
+585,176,65,M,COPD,Anterior,Left,176_2b3_Al_mc_AKGC417L.wav
+586,176,65,M,COPD,Anterior,Right,176_2b3_Ar_mc_AKGC417L.wav
+587,176,65,M,COPD,,Left,176_2b3_Ll_mc_AKGC417L.wav
+588,176,65,M,COPD,,Right,176_2b3_Lr_mc_AKGC417L.wav
+589,176,65,M,COPD,Posterior,Left,176_2b3_Pl_mc_AKGC417L.wav
+590,176,65,M,COPD,Posterior,Right,176_2b3_Pr_mc_AKGC417L.wav
+591,176,65,M,COPD,,,176_2b3_Tc_mc_AKGC417L.wav
+592,177,56,M,COPD,Anterior,Left,177_1b2_Al_mc_AKGC417L.wav
+593,177,56,M,COPD,Anterior,Right,177_1b2_Ar_mc_AKGC417L.wav
+594,177,56,M,COPD,,Right,177_1b2_Lr_mc_AKGC417L.wav
+595,177,56,M,COPD,Posterior,Left,177_1b2_Pl_mc_AKGC417L.wav
+596,177,56,M,COPD,Posterior,Right,177_1b2_Pr_mc_AKGC417L.wav
+597,177,56,M,COPD,,,177_1b2_Tc_mc_AKGC417L.wav
+598,177,56,M,COPD,Anterior,Left,177_1b4_Al_mc_AKGC417L.wav
+599,177,56,M,COPD,Anterior,Right,177_1b4_Ar_mc_AKGC417L.wav
+600,177,56,M,COPD,,Right,177_1b4_Lr_mc_AKGC417L.wav
+601,177,56,M,COPD,Posterior,Left,177_1b4_Pl_mc_AKGC417L.wav
+602,177,56,M,COPD,Posterior,Right,177_1b4_Pr_mc_AKGC417L.wav
+603,177,56,M,COPD,,,177_1b4_Tc_mc_AKGC417L.wav
+604,177,56,M,COPD,Anterior,Left,177_2b4_Al_mc_AKGC417L.wav
+605,177,56,M,COPD,,Right,177_2b4_Lr_mc_AKGC417L.wav
+606,177,56,M,COPD,Posterior,Left,177_2b4_Pl_mc_AKGC417L.wav
+607,177,56,M,COPD,Posterior,Right,177_2b4_Pr_mc_AKGC417L.wav
+608,177,56,M,COPD,,,177_2b4_Tc_mc_AKGC417L.wav
+609,178,58,M,COPD,Anterior,Left,178_1b2_Al_mc_AKGC417L.wav
+610,178,58,M,COPD,Anterior,Right,178_1b2_Ar_mc_AKGC417L.wav
+611,178,58,M,COPD,,Right,178_1b2_Lr_mc_AKGC417L.wav
+612,178,58,M,COPD,Posterior,Left,178_1b2_Pl_mc_AKGC417L.wav
+613,178,58,M,COPD,Posterior,Right,178_1b2_Pr_mc_AKGC417L.wav
+614,178,58,M,COPD,,,178_1b2_Tc_mc_AKGC417L.wav
+615,178,58,M,COPD,Anterior,Left,178_1b3_Al_mc_AKGC417L.wav
+616,178,58,M,COPD,Anterior,Right,178_1b3_Ar_mc_AKGC417L.wav
+617,178,58,M,COPD,,Right,178_1b3_Lr_mc_AKGC417L.wav
+618,178,58,M,COPD,Posterior,Left,178_1b3_Pl_mc_AKGC417L.wav
+619,178,58,M,COPD,Posterior,Right,178_1b3_Pr_mc_AKGC417L.wav
+620,178,58,M,COPD,,,178_1b3_Tc_mc_AKGC417L.wav
+621,178,58,M,COPD,Anterior,Left,178_1b6_Al_mc_AKGC417L.wav
+622,178,58,M,COPD,Anterior,Right,178_1b6_Ar_mc_AKGC417L.wav
+623,178,58,M,COPD,,Left,178_1b6_Ll_mc_AKGC417L.wav
+624,178,58,M,COPD,,Right,178_1b6_Lr_mc_AKGC417L.wav
+625,178,58,M,COPD,Posterior,Left,178_1b6_Pl_mc_AKGC417L.wav
+626,178,58,M,COPD,Posterior,Right,178_1b6_Pr_mc_AKGC417L.wav
+627,178,58,M,COPD,,,178_1b6_Tc_mc_AKGC417L.wav
+628,178,58,M,COPD,Anterior,Left,178_2b2_Al_mc_AKGC417L.wav
+629,178,58,M,COPD,Anterior,Right,178_2b2_Ar_mc_AKGC417L.wav
+630,178,58,M,COPD,,Right,178_2b2_Lr_mc_AKGC417L.wav
+631,178,58,M,COPD,Posterior,Right,178_2b2_Pr_mc_AKGC417L.wav
+632,178,58,M,COPD,,,178_2b2_Tc_mc_AKGC417L.wav
+633,179,10,F,Healthy,Anterior,Left,179_1b1_Al_sc_Meditron.wav
+634,179,10,F,Healthy,,,179_1b1_Tc_sc_Meditron.wav
+635,180,93,M,COPD,Anterior,Left,180_1b4_Al_mc_AKGC417L.wav
+636,180,93,M,COPD,Anterior,Right,180_1b4_Ar_mc_AKGC417L.wav
+637,180,93,M,COPD,,Right,180_1b4_Lr_mc_AKGC417L.wav
+638,180,93,M,COPD,Posterior,Left,180_1b4_Pl_mc_AKGC417L.wav
+639,180,93,M,COPD,Posterior,Right,180_1b4_Pr_mc_AKGC417L.wav
+640,181,65,M,COPD,Anterior,Right,181_1b1_Ar_mc_LittC2SE.wav
+641,181,65,M,COPD,,,181_1b1_Tc_mc_LittC2SE.wav
+642,181,65,M,COPD,Anterior,Right,181_1b2_Ar_mc_LittC2SE.wav
+643,181,65,M,COPD,,,181_1b3_Tc_mc_LittC2SE.wav
+644,182,11,M,Healthy,,,182_1b1_Tc_sc_Meditron.wav
+645,183,14,F,Healthy,Posterior,Left,183_1b1_Pl_sc_Meditron.wav
+646,183,14,F,Healthy,,,183_1b1_Tc_sc_Meditron.wav
+647,184,2,F,Healthy,Anterior,Right,184_1b1_Ar_sc_Meditron.wav
+648,185,75,M,COPD,Anterior,Left,185_1b1_Al_sc_Litt3200.wav
+649,185,75,M,COPD,Anterior,Right,185_1b1_Ar_sc_Litt3200.wav
+650,185,75,M,COPD,,Left,185_1b1_Ll_sc_Litt3200.wav
+651,185,75,M,COPD,,Right,185_1b1_Lr_sc_Litt3200.wav
+652,185,75,M,COPD,Posterior,Left,185_1b1_Pl_sc_Litt3200.wav
+653,185,75,M,COPD,Posterior,Right,185_1b1_Pr_sc_Litt3200.wav
+654,186,71,M,COPD,Anterior,Left,186_2b2_Al_mc_AKGC417L.wav
+655,186,71,M,COPD,Anterior,Right,186_2b2_Ar_mc_AKGC417L.wav
+656,186,71,M,COPD,,Right,186_2b2_Lr_mc_AKGC417L.wav
+657,186,71,M,COPD,Posterior,Left,186_2b2_Pl_mc_AKGC417L.wav
+658,186,71,M,COPD,Posterior,Right,186_2b2_Pr_mc_AKGC417L.wav
+659,186,71,M,COPD,,,186_2b2_Tc_mc_AKGC417L.wav
+660,186,71,M,COPD,Anterior,Left,186_2b3_Al_mc_AKGC417L.wav
+661,186,71,M,COPD,Anterior,Right,186_2b3_Ar_mc_AKGC417L.wav
+662,186,71,M,COPD,,Right,186_2b3_Lr_mc_AKGC417L.wav
+663,186,71,M,COPD,Posterior,Left,186_2b3_Pl_mc_AKGC417L.wav
+664,186,71,M,COPD,Posterior,Right,186_2b3_Pr_mc_AKGC417L.wav
+665,186,71,M,COPD,,,186_2b3_Tc_mc_AKGC417L.wav
+666,186,71,M,COPD,Anterior,Left,186_2b4_Al_mc_AKGC417L.wav
+667,186,71,M,COPD,Anterior,Right,186_2b4_Ar_mc_AKGC417L.wav
+668,186,71,M,COPD,,Right,186_2b4_Lr_mc_AKGC417L.wav
+669,186,71,M,COPD,Posterior,Left,186_2b4_Pl_mc_AKGC417L.wav
+670,186,71,M,COPD,Posterior,Right,186_2b4_Pr_mc_AKGC417L.wav
+671,186,71,M,COPD,,,186_2b4_Tc_mc_AKGC417L.wav
+672,186,71,M,COPD,Anterior,Left,186_3b3_Al_mc_AKGC417L.wav
+673,186,71,M,COPD,Anterior,Right,186_3b3_Ar_mc_AKGC417L.wav
+674,186,71,M,COPD,,Right,186_3b3_Lr_mc_AKGC417L.wav
+675,186,71,M,COPD,Posterior,Left,186_3b3_Pl_mc_AKGC417L.wav
+676,186,71,M,COPD,Posterior,Right,186_3b3_Pr_mc_AKGC417L.wav
+677,186,71,M,COPD,,,186_3b3_Tc_mc_AKGC417L.wav
+678,187,0.5,F,Healthy,,Left,187_1b1_Ll_sc_Meditron.wav
+679,188,3,M,URTI,Anterior,Left,188_1b1_Al_sc_Meditron.wav
+680,188,3,M,URTI,Anterior,Right,188_1b1_Ar_sc_Meditron.wav
+681,188,3,M,URTI,Posterior,Left,188_1b1_Pl_sc_Meditron.wav
+682,188,3,M,URTI,,,188_1b1_Tc_sc_Meditron.wav
+683,189,75,F,COPD,,Right,189_1b2_Lr_mc_LittC2SE.wav
+684,190,3,F,URTI,,,190_1b1_Tc_sc_Meditron.wav
+685,191,74,F,Pneumonia,Posterior,Left,191_2b1_Pl_mc_LittC2SE.wav
+686,191,74,F,Pneumonia,Posterior,Right,191_2b1_Pr_mc_LittC2SE.wav
+687,191,74,F,Pneumonia,,,191_2b2_Tc_mc_LittC2SE.wav
+688,192,69,M,COPD,Anterior,Left,192_2b1_Al_mc_LittC2SE.wav
+689,192,69,M,COPD,Anterior,Right,192_2b1_Ar_mc_LittC2SE.wav
+690,192,69,M,COPD,Anterior,Left,192_2b2_Al_mc_LittC2SE.wav
+691,192,69,M,COPD,Anterior,Right,192_2b2_Ar_mc_LittC2SE.wav
+692,192,69,M,COPD,Anterior,Left,192_2b3_Al_mc_LittC2SE.wav
+693,192,69,M,COPD,Anterior,Right,192_2b3_Ar_mc_LittC2SE.wav
+694,193,77,M,COPD,Anterior,Left,193_1b2_Al_mc_AKGC417L.wav
+695,193,77,M,COPD,Anterior,Right,193_1b2_Ar_mc_AKGC417L.wav
+696,193,77,M,COPD,,Left,193_1b2_Ll_mc_AKGC417L.wav
+697,193,77,M,COPD,Posterior,Left,193_1b2_Pl_mc_AKGC417L.wav
+698,193,77,M,COPD,Posterior,Right,193_1b2_Pr_mc_AKGC417L.wav
+699,193,77,M,COPD,,,193_1b2_Tc_mc_AKGC417L.wav
+700,193,77,M,COPD,,Right,193_1b4_Lr_mc_AKGC417L.wav
+701,193,77,M,COPD,Anterior,Left,193_7b3_Al_mc_AKGC417L.wav
+702,193,77,M,COPD,Anterior,Right,193_7b3_Ar_mc_AKGC417L.wav
+703,193,77,M,COPD,,Left,193_7b3_Ll_mc_AKGC417L.wav
+704,193,77,M,COPD,,Right,193_7b3_Lr_mc_AKGC417L.wav
+705,193,77,M,COPD,Posterior,Left,193_7b3_Pl_mc_AKGC417L.wav
+706,193,77,M,COPD,Posterior,Right,193_7b3_Pr_mc_AKGC417L.wav
+707,193,77,M,COPD,,,193_7b3_Tc_mc_AKGC417L.wav
+708,194,2,M,Healthy,,Right,194_1b1_Lr_sc_Meditron.wav
+709,194,2,M,Healthy,Posterior,Right,194_1b1_Pr_sc_Meditron.wav
+710,195,67,M,COPD,Anterior,Left,195_1b1_Al_sc_Litt3200.wav
+711,195,67,M,COPD,Anterior,Right,195_1b1_Ar_sc_Litt3200.wav
+712,195,67,M,COPD,,Left,195_1b1_Ll_sc_Litt3200.wav
+713,195,67,M,COPD,,Right,195_1b1_Lr_sc_Litt3200.wav
+714,195,67,M,COPD,Posterior,Left,195_1b1_Pl_sc_Litt3200.wav
+715,195,67,M,COPD,Posterior,Right,195_1b1_Pr_sc_Litt3200.wav
+716,196,21,F,Bronchiectasis,Posterior,Right,196_1b1_Pr_sc_Meditron.wav
+717,197,16,F,URTI,Anterior,Left,197_1b1_Al_sc_Meditron.wav
+718,197,16,F,URTI,,,197_1b1_Tc_sc_Meditron.wav
+719,198,71,M,COPD,Anterior,Left,198_1b5_Al_mc_AKGC417L.wav
+720,198,71,M,COPD,Anterior,Right,198_1b5_Ar_mc_AKGC417L.wav
+721,198,71,M,COPD,,Left,198_1b5_Ll_mc_AKGC417L.wav
+722,198,71,M,COPD,,Right,198_1b5_Lr_mc_AKGC417L.wav
+723,198,71,M,COPD,Posterior,Left,198_1b5_Pl_mc_AKGC417L.wav
+724,198,71,M,COPD,Posterior,Right,198_1b5_Pr_mc_AKGC417L.wav
+725,198,71,M,COPD,,,198_1b5_Tc_mc_AKGC417L.wav
+726,198,71,M,COPD,Anterior,Left,198_6p1_Al_mc_AKGC417L.wav
+727,198,71,M,COPD,Anterior,Right,198_6p1_Ar_mc_AKGC417L.wav
+728,198,71,M,COPD,,Left,198_6p1_Ll_mc_AKGC417L.wav
+729,198,71,M,COPD,,Right,198_6p1_Lr_mc_AKGC417L.wav
+730,198,71,M,COPD,Posterior,Left,198_6p1_Pl_mc_AKGC417L.wav
+731,198,71,M,COPD,Posterior,Right,198_6p1_Pr_mc_AKGC417L.wav
+732,198,71,M,COPD,,,198_6p1_Tc_mc_AKGC417L.wav
+733,199,71,M,COPD,,Left,199_2b1_Ll_mc_LittC2SE.wav
+734,199,71,M,COPD,,Left,199_2b3_Ll_mc_LittC2SE.wav
+735,200,72,F,COPD,Anterior,Left,200_2p2_Al_mc_AKGC417L.wav
+736,200,72,F,COPD,Anterior,Right,200_2p2_Ar_mc_AKGC417L.wav
+737,200,72,F,COPD,,Right,200_2p2_Lr_mc_AKGC417L.wav
+738,200,72,F,COPD,Posterior,Left,200_2p2_Pl_mc_AKGC417L.wav
+739,200,72,F,COPD,Posterior,Right,200_2p2_Pr_mc_AKGC417L.wav
+740,200,72,F,COPD,,,200_2p2_Tc_mc_AKGC417L.wav
+741,200,72,F,COPD,Anterior,Left,200_2p3_Al_mc_AKGC417L.wav
+742,200,72,F,COPD,Anterior,Right,200_2p3_Ar_mc_AKGC417L.wav
+743,200,72,F,COPD,,Right,200_2p3_Lr_mc_AKGC417L.wav
+744,200,72,F,COPD,Posterior,Left,200_2p3_Pl_mc_AKGC417L.wav
+745,200,72,F,COPD,Posterior,Right,200_2p3_Pr_mc_AKGC417L.wav
+746,200,72,F,COPD,,,200_2p3_Tc_mc_AKGC417L.wav
+747,200,72,F,COPD,Anterior,Left,200_2p4_Al_mc_AKGC417L.wav
+748,200,72,F,COPD,Anterior,Right,200_2p4_Ar_mc_AKGC417L.wav
+749,200,72,F,COPD,,Right,200_2p4_Lr_mc_AKGC417L.wav
+750,200,72,F,COPD,Posterior,Left,200_2p4_Pl_mc_AKGC417L.wav
+751,200,72,F,COPD,Posterior,Right,200_2p4_Pr_mc_AKGC417L.wav
+752,200,72,F,COPD,,,200_2p4_Tc_mc_AKGC417L.wav
+753,200,72,F,COPD,Anterior,Left,200_3p4_Al_mc_AKGC417L.wav
+754,200,72,F,COPD,Anterior,Right,200_3p4_Ar_mc_AKGC417L.wav
+755,200,72,F,COPD,Posterior,Left,200_3p4_Pl_mc_AKGC417L.wav
+756,200,72,F,COPD,Posterior,Right,200_3p4_Pr_mc_AKGC417L.wav
+757,200,72,F,COPD,,,200_3p4_Tc_mc_AKGC417L.wav
+758,201,73,F,Bronchiectasis,Anterior,Left,201_1b1_Al_sc_Meditron.wav
+759,201,73,F,Bronchiectasis,Anterior,Right,201_1b1_Ar_sc_Meditron.wav
+760,201,73,F,Bronchiectasis,Anterior,Left,201_1b2_Al_sc_Meditron.wav
+761,201,73,F,Bronchiectasis,Anterior,Right,201_1b2_Ar_sc_Meditron.wav
+762,201,73,F,Bronchiectasis,Anterior,Left,201_1b3_Al_sc_Meditron.wav
+763,201,73,F,Bronchiectasis,Anterior,Right,201_1b3_Ar_sc_Meditron.wav
+764,202,2,M,Healthy,Anterior,Right,202_1b1_Ar_sc_Meditron.wav
+765,203,57,F,COPD,Anterior,Left,203_1p2_Al_mc_AKGC417L.wav
+766,203,57,F,COPD,Anterior,Right,203_1p2_Ar_mc_AKGC417L.wav
+767,203,57,F,COPD,,Right,203_1p2_Lr_mc_AKGC417L.wav
+768,203,57,F,COPD,Posterior,Left,203_1p2_Pl_mc_AKGC417L.wav
+769,203,57,F,COPD,Posterior,Right,203_1p2_Pr_mc_AKGC417L.wav
+770,203,57,F,COPD,,,203_1p2_Tc_mc_AKGC417L.wav
+771,203,57,F,COPD,Anterior,Left,203_1p3_Al_mc_AKGC417L.wav
+772,203,57,F,COPD,Anterior,Right,203_1p3_Ar_mc_AKGC417L.wav
+773,203,57,F,COPD,Posterior,Left,203_1p3_Pl_mc_AKGC417L.wav
+774,203,57,F,COPD,Posterior,Right,203_1p3_Pr_mc_AKGC417L.wav
+775,203,57,F,COPD,,,203_1p3_Tc_mc_AKGC417L.wav
+776,203,57,F,COPD,Anterior,Left,203_1p4_Al_mc_AKGC417L.wav
+777,203,57,F,COPD,Anterior,Right,203_1p4_Ar_mc_AKGC417L.wav
+778,203,57,F,COPD,Posterior,Left,203_1p4_Pl_mc_AKGC417L.wav
+779,203,57,F,COPD,Posterior,Right,203_1p4_Pr_mc_AKGC417L.wav
+780,203,57,F,COPD,,,203_1p4_Tc_mc_AKGC417L.wav
+781,203,57,F,COPD,Anterior,Left,203_2p3_Al_mc_AKGC417L.wav
+782,203,57,F,COPD,Anterior,Right,203_2p3_Ar_mc_AKGC417L.wav
+783,203,57,F,COPD,Posterior,Left,203_2p3_Pl_mc_AKGC417L.wav
+784,203,57,F,COPD,Posterior,Right,203_2p3_Pr_mc_AKGC417L.wav
+785,203,57,F,COPD,,,203_2p3_Tc_mc_AKGC417L.wav
+786,204,66,M,COPD,Anterior,Left,204_2b5_Al_mc_AKGC417L.wav
+787,204,66,M,COPD,Anterior,Right,204_2b5_Ar_mc_AKGC417L.wav
+788,204,66,M,COPD,,Left,204_2b5_Ll_mc_AKGC417L.wav
+789,204,66,M,COPD,Anterior,Left,204_7p5_Al_mc_AKGC417L.wav
+790,204,66,M,COPD,Anterior,Right,204_7p5_Ar_mc_AKGC417L.wav
+791,204,66,M,COPD,,Left,204_7p5_Ll_mc_AKGC417L.wav
+792,204,66,M,COPD,,Right,204_7p5_Lr_mc_AKGC417L.wav
+793,204,66,M,COPD,Posterior,Right,204_7p5_Pr_mc_AKGC417L.wav
+794,204,66,M,COPD,,,204_7p5_Tc_mc_AKGC417L.wav
+795,205,45,M,COPD,Anterior,Left,205_1b3_Al_mc_AKGC417L.wav
+796,205,45,M,COPD,Anterior,Right,205_1b3_Ar_mc_AKGC417L.wav
+797,205,45,M,COPD,,Left,205_1b3_Ll_mc_AKGC417L.wav
+798,205,45,M,COPD,,Right,205_1b3_Lr_mc_AKGC417L.wav
+799,205,45,M,COPD,Posterior,Left,205_1b3_Pl_mc_AKGC417L.wav
+800,205,45,M,COPD,Posterior,Right,205_1b3_Pr_mc_AKGC417L.wav
+801,205,45,M,COPD,Posterior,Right,205_2b2_Pr_mc_AKGC417L.wav
+802,205,45,M,COPD,Anterior,Left,205_2b3_Al_mc_AKGC417L.wav
+803,205,45,M,COPD,Anterior,Right,205_2b3_Ar_mc_AKGC417L.wav
+804,205,45,M,COPD,,Left,205_2b3_Ll_mc_AKGC417L.wav
+805,205,45,M,COPD,Posterior,Left,205_2b4_Pl_mc_AKGC417L.wav
+806,205,45,M,COPD,Anterior,Left,205_3b4_Al_mc_AKGC417L.wav
+807,205,45,M,COPD,Anterior,Right,205_3b4_Ar_mc_AKGC417L.wav
+808,205,45,M,COPD,Posterior,Left,205_3b4_Pl_mc_AKGC417L.wav
+809,205,45,M,COPD,Posterior,Right,205_3b4_Pr_mc_AKGC417L.wav
+810,205,45,M,COPD,Anterior,Left,205_4b2_Al_mc_AKGC417L.wav
+811,205,45,M,COPD,Anterior,Right,205_4b2_Ar_mc_AKGC417L.wav
+812,205,45,M,COPD,,Right,205_4b2_Lr_mc_AKGC417L.wav
+813,205,45,M,COPD,Posterior,Left,205_4b2_Pl_mc_AKGC417L.wav
+814,205,45,M,COPD,Posterior,Right,205_4b2_Pr_mc_AKGC417L.wav
+815,206,3,M,Bronchiolitis,Anterior,Right,206_1b1_Ar_sc_Meditron.wav
+816,206,3,M,Bronchiolitis,,Right,206_1b1_Lr_sc_Meditron.wav
+817,206,3,M,Bronchiolitis,Posterior,Left,206_1b1_Pl_sc_Meditron.wav
+818,207,63,F,COPD,Anterior,Left,207_2b2_Al_mc_AKGC417L.wav
+819,207,63,F,COPD,Anterior,Right,207_2b2_Ar_mc_AKGC417L.wav
+820,207,63,F,COPD,Posterior,Left,207_2b2_Pl_mc_AKGC417L.wav
+821,207,63,F,COPD,Posterior,Right,207_2b2_Pr_mc_AKGC417L.wav
+822,207,63,F,COPD,,,207_2b2_Tc_mc_AKGC417L.wav
+823,207,63,F,COPD,Anterior,Left,207_2b3_Al_mc_AKGC417L.wav
+824,207,63,F,COPD,Anterior,Right,207_2b3_Ar_mc_AKGC417L.wav
+825,207,63,F,COPD,Posterior,Left,207_2b3_Pl_mc_AKGC417L.wav
+826,207,63,F,COPD,Posterior,Right,207_2b3_Pr_mc_AKGC417L.wav
+827,207,63,F,COPD,,,207_2b3_Tc_mc_AKGC417L.wav
+828,207,63,F,COPD,Anterior,Left,207_2b4_Al_mc_AKGC417L.wav
+829,207,63,F,COPD,Anterior,Right,207_2b4_Ar_mc_AKGC417L.wav
+830,207,63,F,COPD,Posterior,Left,207_2b4_Pl_mc_AKGC417L.wav
+831,207,63,F,COPD,Posterior,Right,207_2b4_Pr_mc_AKGC417L.wav
+832,207,63,F,COPD,,,207_2b4_Tc_mc_AKGC417L.wav
+833,207,63,F,COPD,Anterior,Left,207_3b2_Al_mc_AKGC417L.wav
+834,207,63,F,COPD,Anterior,Right,207_3b2_Ar_mc_AKGC417L.wav
+835,207,63,F,COPD,,Right,207_3b2_Lr_mc_AKGC417L.wav
+836,207,63,F,COPD,Posterior,Left,207_3b2_Pl_mc_AKGC417L.wav
+837,207,63,F,COPD,Posterior,Right,207_3b2_Pr_mc_AKGC417L.wav
+838,207,63,F,COPD,,,207_3b2_Tc_mc_AKGC417L.wav
+839,208,5,F,Healthy,,Left,208_1b1_Ll_sc_Meditron.wav
+840,209,14,F,Healthy,,,209_1b1_Tc_sc_Meditron.wav
+841,210,1,F,URTI,Anterior,Left,210_1b1_Al_sc_Meditron.wav
+842,210,1,F,URTI,Anterior,Right,210_1b1_Ar_sc_Meditron.wav
+843,211,70,F,COPD,Anterior,Right,211_1p2_Ar_mc_AKGC417L.wav
+844,211,70,F,COPD,Posterior,Left,211_1p2_Pl_mc_AKGC417L.wav
+845,211,70,F,COPD,Posterior,Right,211_1p2_Pr_mc_AKGC417L.wav
+846,211,70,F,COPD,Anterior,Right,211_1p3_Ar_mc_AKGC417L.wav
+847,211,70,F,COPD,Anterior,Right,211_1p5_Ar_mc_AKGC417L.wav
+848,211,70,F,COPD,,,211_2p2_Tc_mc_AKGC417L.wav
+849,211,70,F,COPD,,,211_2p3_Tc_mc_AKGC417L.wav
+850,211,70,F,COPD,,,211_2p4_Tc_mc_AKGC417L.wav
+851,212,83,M,COPD,,,212_2b2_Tc_mc_LittC2SE.wav
+852,213,58,F,COPD,Anterior,Left,213_1p2_Al_mc_AKGC417L.wav
+853,213,58,F,COPD,Anterior,Right,213_1p2_Ar_mc_AKGC417L.wav
+854,213,58,F,COPD,,Right,213_1p2_Lr_mc_AKGC417L.wav
+855,213,58,F,COPD,Posterior,Left,213_1p2_Pl_mc_AKGC417L.wav
+856,213,58,F,COPD,Posterior,Right,213_1p2_Pr_mc_AKGC417L.wav
+857,213,58,F,COPD,,,213_1p2_Tc_mc_AKGC417L.wav
+858,213,58,F,COPD,Anterior,Left,213_1p3_Al_mc_AKGC417L.wav
+859,213,58,F,COPD,Anterior,Right,213_1p3_Ar_mc_AKGC417L.wav
+860,213,58,F,COPD,Posterior,Left,213_1p3_Pl_mc_AKGC417L.wav
+861,213,58,F,COPD,Posterior,Right,213_1p3_Pr_mc_AKGC417L.wav
+862,213,58,F,COPD,Anterior,Left,213_1p5_Al_mc_AKGC417L.wav
+863,213,58,F,COPD,Anterior,Right,213_1p5_Ar_mc_AKGC417L.wav
+864,213,58,F,COPD,Posterior,Left,213_1p5_Pl_mc_AKGC417L.wav
+865,213,58,F,COPD,Posterior,Right,213_1p5_Pr_mc_AKGC417L.wav
+866,213,58,F,COPD,,,213_1p5_Tc_mc_AKGC417L.wav
+867,213,58,F,COPD,Anterior,Left,213_2p2_Al_mc_AKGC417L.wav
+868,213,58,F,COPD,Anterior,Right,213_2p2_Ar_mc_AKGC417L.wav
+869,213,58,F,COPD,Posterior,Left,213_2p2_Pl_mc_AKGC417L.wav
+870,213,58,F,COPD,Posterior,Right,213_2p2_Pr_mc_AKGC417L.wav
+871,213,58,F,COPD,,,213_2p2_Tc_mc_AKGC417L.wav
+872,214,5,M,Healthy,Anterior,Right,214_1b1_Ar_sc_Meditron.wav
+873,215,56,F,Bronchiectasis,Anterior,Right,215_1b2_Ar_sc_Meditron.wav
+874,215,56,F,Bronchiectasis,,,215_1b3_Tc_sc_Meditron.wav
+875,216,1,M,Bronchiolitis,Anterior,Left,216_1b1_Al_sc_Meditron.wav
+876,216,1,M,Bronchiolitis,Posterior,Left,216_1b1_Pl_sc_Meditron.wav
+877,217,12,F,Healthy,,,217_1b1_Tc_sc_Meditron.wav
+878,218,75,M,COPD,Anterior,Left,218_1b1_Al_sc_Meditron.wav
+879,218,75,M,COPD,Anterior,Right,218_1b1_Ar_sc_Meditron.wav
+880,218,75,M,COPD,,Right,218_1b1_Lr_sc_Meditron.wav
+881,218,75,M,COPD,Posterior,Left,218_1b1_Pl_sc_Meditron.wav
+882,218,75,M,COPD,Posterior,Right,218_1b1_Pr_sc_Meditron.wav
+883,218,75,M,COPD,Anterior,Right,218_1p1_Ar_sc_Litt3200.wav
+884,218,75,M,COPD,Posterior,Left,218_1p1_Pl_sc_Litt3200.wav
+885,218,75,M,COPD,Posterior,Right,218_1p1_Pr_sc_Litt3200.wav
+886,219,81,M,Pneumonia,Anterior,Right,219_2b1_Ar_mc_LittC2SE.wav
+887,219,81,M,Pneumonia,,,219_2b1_Tc_mc_LittC2SE.wav
+888,219,81,M,Pneumonia,Anterior,Right,219_2b2_Ar_mc_LittC2SE.wav
+889,219,81,M,Pneumonia,,,219_2b2_Tc_mc_LittC2SE.wav
+890,219,81,M,Pneumonia,,,219_2b3_Tc_mc_LittC2SE.wav
+891,220,66,M,COPD,,,220_1b1_Tc_mc_LittC2SE.wav
+892,220,66,M,COPD,Anterior,Left,220_1b2_Al_mc_LittC2SE.wav
+893,221,74,F,COPD,Anterior,Left,221_2b1_Al_mc_LittC2SE.wav
+894,221,74,F,COPD,Anterior,Right,221_2b1_Ar_mc_LittC2SE.wav
+895,221,74,F,COPD,,Right,221_2b1_Lr_mc_LittC2SE.wav
+896,221,74,F,COPD,Posterior,Left,221_2b1_Pl_mc_LittC2SE.wav
+897,221,74,F,COPD,Anterior,Left,221_2b2_Al_mc_LittC2SE.wav
+898,221,74,F,COPD,Anterior,Right,221_2b2_Ar_mc_LittC2SE.wav
+899,221,74,F,COPD,,Right,221_2b2_Lr_mc_LittC2SE.wav
+900,221,74,F,COPD,Posterior,Left,221_2b2_Pl_mc_LittC2SE.wav
+901,221,74,F,COPD,Anterior,Left,221_2b3_Al_mc_LittC2SE.wav
+902,221,74,F,COPD,Anterior,Right,221_2b3_Ar_mc_LittC2SE.wav
+903,221,74,F,COPD,,Right,221_2b3_Lr_mc_LittC2SE.wav
+904,221,74,F,COPD,Posterior,Right,221_2b3_Pr_mc_LittC2SE.wav
+905,222,60,M,COPD,Anterior,Right,222_1b1_Ar_sc_Meditron.wav
+906,222,60,M,COPD,,Right,222_1b1_Lr_sc_Meditron.wav
+907,222,60,M,COPD,Posterior,Right,222_1b1_Pr_sc_Meditron.wav
+908,223,,,COPD,Anterior,Left,223_1b1_Al_sc_Meditron.wav
+909,223,,,COPD,Anterior,Right,223_1b1_Ar_sc_Meditron.wav
+910,223,,,COPD,,Left,223_1b1_Ll_sc_Meditron.wav
+911,223,,,COPD,,Right,223_1b1_Lr_sc_Meditron.wav
+912,223,,,COPD,Posterior,Left,223_1b1_Pl_sc_Meditron.wav
+913,223,,,COPD,Posterior,Right,223_1b1_Pr_sc_Meditron.wav
+914,224,10,F,Healthy,,,224_1b1_Tc_sc_Meditron.wav
+915,224,10,F,Healthy,Anterior,Left,224_1b2_Al_sc_Meditron.wav
+916,225,0.83,M,Healthy,Posterior,Left,225_1b1_Pl_sc_Meditron.wav
+917,226,4,M,Pneumonia,Anterior,Left,226_1b1_Al_sc_Meditron.wav
+918,226,4,M,Pneumonia,,Left,226_1b1_Ll_sc_Meditron.wav
+919,226,4,M,Pneumonia,Posterior,Left,226_1b1_Pl_sc_LittC2SE.wav
+0,1,70,M,Asthma,Posterior,Left,"DP1_Asthma,I E W,P L L,70,M.wav"
+1,2,52,F,Asthma,Posterior,Left,"DP2_Asthma,E W,P L L R,52,F.wav"
+2,3,50,F,Asthma,Posterior,Left,"DP3_Asthma,I E W,P L L R,50,F.wav"
+5,6,81,M,Plueral Effusion,Posterior,Right,"DP6_Plueral Effusion,I C B,P L R,81,M.wav"
+7,8,70,M,Plueral Effusion,Posterior,Left,"DP8_Plueral Effusion,I C B,P L L,70,M.wav"
+8,9,59,M,Asthma,Posterior,Right,"DP9_Asthma,E W,P R L ,59,M.wav"
+9,10,59,M,Asthma,Posterior,Right,"DP10_Asthma,E W,P R U,59,M.wav"
+10,11,53,M,Heart Failure,Posterior,Left,"DP11_Heart Failure,C,P L L,53,M.wav"
+11,12,50,F,Asthma,Posterior,Left,"DP12_Asthma,E W,P L L,50,F.wav"
+12,13,55,M,Heart Failure,Posterior,Left,"DP13_Heart Failure,C,P L L,55,M.wav"
+13,14,54,M,Heart Failure,Anterior,Right,"DP14_Heart Failure,C,A R M,54,M.wav"
+14,15,49,F,Asthma,Posterior,Right,"DP15_Asthma,E W,P R U,49,F.wav"
+15,16,56,M,Heart Failure,Posterior,Right,"DP16_heart failure,C,P R U,56,M.wav"
+16,17,57,M,COPD,Anterior,Right,"DP17_COPD,E W,A R M,57,M.wav"
+17,18,57,M,Pneumonia,Posterior,Right,"DP18_pneumonia,C,P R U,57,M.wav"
+18,19,70,F,Heart Failure,Posterior,Right,"DP19_heart failure,C,P R U,70,F.wav"
+22,23,50,M,Lung Fibrosis,Posterior,Right,"DP23_Lung Fibrosis,Crep,P R L ,50,M.wav"
+23,24,76,F,Heart Failure,Posterior,Right,"DP24_heart failure,Crep,P R L ,76,F.wav"
+24,25,76,M,COPD,Posterior,Left,"DP25_copd,E W,P L L,76,M.wav"
+25,26,90,F,Lung Fibrosis,Posterior,Left,"DP26_Lung Fibrosis,Crep,P,90,F.wav"
+26,27,53,F,Asthma,Posterior,Right,"DP27_asthma,E W,P R M,53,F.wav"
+28,29,57,M,Heart Failure,Posterior,Left,"DP29_heart failure,Crep,P L L,57,M.wav"
+29,30,18,F,Healthy,Posterior,Right,"DP30_N,N,P R M,18,F.wav"
+30,31,27,F,Healthy,Posterior,Left,"DP31_N,N,P L M,27,F.wav"
+31,32,30,M,Healthy,Anterior,Right,"DP32_N,N,A R L,30,M.wav"
+32,33,43,F,Asthma,Posterior,Right,"DP33_Asthma,E W,P R M,43,F.wav"
+33,34,78,F,Heart Failure,Posterior,Right,"DP34_heart failure,Crep,P R M,78,F.wav"
+34,35,38,M,Asthma,Anterior,Right,"DP35_Asthma,E W,A R L,38,M.wav"
+35,36,36,F,Pneumonia,Posterior,Right,"DP36_pneumonia,Crep,P R M,36,F.wav"
+36,37,70,F,Pneumonia,Anterior,Right,"DP37_pneumonia,Crep,A R L,70,F.wav"
+37,38,38,M,Asthma,Posterior,Right,"DP38_Asthma,E W,P R M,38,M.wav"
+38,39,67,M,Heart Failure,Posterior,Right,"DP39_heart failure,Crep,P R L ,67,M.wav"
+39,40,26,M,Heart Failure,Anterior,Right,"DP40_heart failure,Crep,A R M,26,M.wav"
+40,41,51,M,Pneumonia,Posterior,Right,"DP41_pneumonia,Crep,P R M,51,M.wav"
+41,42,56,M,Heart Failure,Posterior,Left,"DP42_heart failure,Crep,P L L,56,M.wav"
+42,43,15,M,Asthma,Posterior,Left,"DP43_asthma,E W,P L M,15,M.wav"
+43,44,40,M,Asthma,Posterior,Right,"DP44_asthma,E W,P R U,40,M.wav"
+44,45,30,M,Heart Failure,Posterior,Right,"DP45_heart failure,Crep,P R L ,30,M.wav"
+45,46,41,F,Asthma,Posterior,Left,"DP46_asthma,E W,P L U,41,F.wav"
+46,47,60,M,Asthma,Posterior,Left,"DP47_asthma,E W,P L M,60,M.wav"
+47,48,31,M,Healthy,Posterior,Left,"DP48_N,N,P L U,31,M.wav"
+48,49,21,M,Healthy,Posterior,Right,"DP49_N,N,P R M,21,M.wav"
+49,50,27,M,Healthy,Posterior,Right,"DP50_N,N,P R L ,27,M.wav"
+50,51,30,M,Healthy,Posterior,Left,"DP51_N,N,P L M,30,M.wav"
+51,52,76,F,Lung Fibrosis,Posterior,Left,"DP52_Lung Fibrosis,Crep,P L L,76,F.wav"
+52,53,72,F,Asthma,Posterior,Right,"DP53_asthma,E W,P R M,72,F.wav"
+53,54,73,F,Heart Failure,Posterior,Right,"DP54_heart failure,Crep,P R L ,73,F.wav"
+54,55,72,F,Asthma,Posterior,Right,"DP55_asthma,E W,P R U,72,F.wav"
+55,56,56,F,Asthma,Posterior,Right,"DP56_asthma,E W,P R M,56,F.wav"
+56,57,42,M,COPD,Posterior,Right,"DP57_COPD,E W,P R L ,42,M.wav"
+57,58,40,M,Asthma,Posterior,Left,"DP58_asthma,E W,P L M,40,M.wav"
+58,59,83,F,Heart Failure,Posterior,Right,"DP59_heart failure,Crep,P R L ,83,F.wav"
+59,60,83,F,Heart Failure,Posterior,Left,"DP60_heart failure,Crep,P L L,83,F.wav"
+60,61,53,M,COPD,Posterior,Right,"DP61_COPD,E W,P R L ,53,M.wav"
+61,62,53,M,COPD,Posterior,Left,"DP62_COPD,E W,P L M,53,M.wav"
+62,63,58,F,COPD,Posterior,Right,"DP63_COPD,E W,P R L ,58,F.wav"
+63,64,60,M,Asthma,Posterior,Left,"DP64_asthma,E W,P L U,60,M.wav"
+64,65,60,F,Asthma,Posterior,Right,"DP65_asthma,E W,P R L ,60,F.wav"
+65,66,43,M,Heart Failure,Posterior,Right,"DP66_heart failure,Crep,P R L ,43,M.wav"
+66,67,24,F,Heart Failure,Posterior,Right,"DP67_heart failure,Crep,P R L ,24,F.wav"
+67,68,21,F,Asthma,Posterior,Right,"DP68_asthma,E W,P R L ,21,F.wav"
+68,69,64,M,Pneumonia,Posterior,Right,"DP69_pneumonia,Bronchial,P R L ,64,M.wav"
+69,70,52,F,Healthy,Posterior,Left,"DP70_N,N,P L U,52,F.wav"
+70,71,36,M,Healthy,Posterior,Right,"DP71_N,N,P R U,36,M.wav"
+71,72,24,F,Healthy,Posterior,Right,"DP72_N,N,P R U,24,F.wav"
+72,73,32,M,Healthy,Posterior,Left,"DP73_N,N,P L L,32,M.wav"
+73,74,74,M,Healthy,Posterior,Right,"DP74_N,N,P R M,74,M.wav"
+74,75,73,F,Healthy,Posterior,Left,"DP75_N,N,P L U,73,F.wav"
+75,76,31,M,Healthy,Anterior,Left,"DP76_N,N,A L U,31,M.wav"
+76,77,40,M,Asthma,Anterior,Right,"DP77_Asthma,E W,A R L,40,M.wav"
+77,78,20,M,Asthma,Posterior,Right,"DP78_Asthma,E W,P R M,20,M.wav"
+78,79,46,M,Asthma,Anterior,Right,"DP79_asthma,E W,A R U,46,M.wav"
+79,80,38,M,Asthma,Anterior,Left,"DP80_asthma,E W,A L U,38,M.wav"
+80,81,33,M,Healthy,Posterior,Left,"DP81_N,N,P L U,33,M.wav"
+81,82,38,M,Healthy,Posterior,Left,"DP82_N,N,P L U,38,M.wav"
+82,83,18,F,Healthy,Anterior,Right,"DP83_N,N,A R U,18,F.wav"
+83,84,65,F,Healthy,Anterior,Right,"DP84_N,N,A R U,65,F.wav"
+84,85,33,M,Healthy,Anterior,Right,"DP85_N,N,A R U,33,M.wav"
+85,86,68,F,Healthy,Posterior,Right,"DP86_N,N,P R U,68,F.wav"
+86,87,72,M,Healthy,Posterior,Right,"DP87_N,N,P R M,72,M.wav"
+87,88,29,M,Healthy,Anterior,Right,"DP88_N,N,A R U,29,M.wav"
+88,89,70,M,Healthy,Posterior,Left,"DP89_N,N,P L M,70,M.wav"
+89,90,74,F,Heart Failure,Posterior,Left,"DP90_heart failure,Crep,P L M,74,F.wav"
+90,91,43,F,Asthma,Posterior,Right,"DP91_asthma,E W,P R U,43,F.wav"
+91,92,43,M,Healthy,Posterior,Left,"DP92_N,N,P L L ,43,M.wav"
+92,93,75,M,Healthy,Posterior,Right,"DP93_N,N,P R M,75,M.wav"
+93,94,24,M,Healthy,Posterior,Left,"DP94_N,N,P L L,24,M.wav"
+94,95,18,M,Healthy,Posterior,Left,"DP95_N,N,P L M,18,M.wav"
+95,96,66,F,Healthy,Posterior,Right,"DP96_N,N,P R L ,66,F.wav"
+96,97,24,M,Asthma,Posterior,Right,"DP97_Asthma,E W,P R U,24,M.wav"
+97,98,53,M,Healthy,Posterior,Left,"DP98_N,N,P L L,53,M.wav"
+98,99,50,M,Healthy,Posterior,Right,"DP99_N,N,P R M,50,M.wav"
+99,100,70,F,Healthy,Posterior,Right,"DP100_N,N,P R M,70,F.wav"
+100,101,12,F,Asthma,Posterior,Left,"DP101_Asthma,E W,P L M,12,F.wav"
+101,102,41,M,Healthy,Posterior,Left,"DP102_N,N,P L L,41,M.wav"
+102,103,81,F,Healthy,Posterior,Right,"DP103_N,N,P R U,81,F.wav"
+103,104,45,F,Asthma,Posterior,Left,"DP104_Asthma,E W,P L U,45,F.wav"
+104,105,44,M,Lung Fibrosis,Anterior,Right,"DP105_Lung Fibrosis,Crep,A U R,44,M.wav"
+105,106,45,F,Asthma,Posterior,Left,"DP106_Asthma,E W,P L U,45,F.wav"
+106,107,59,F,Asthma,Posterior,Left,"DP107_Asthma,E W,P L U,59,F.wav"
+107,108,63,M,COPD,Posterior,Right,"DP108_COPD,E W,P R L ,63,M.wav"
+108,109,26,M,Healthy,Posterior,Left,"DP109_N,N,P L M,26,M.wav"
+109,110,62,M,COPD,Posterior,Left,"DP110_COPD,E W,P L L,62,M.wav"
+110,111,51,M,COPD,Posterior,Right,"DP111_COPD,E W,P R L ,51,M.wav"
+111,112,30,M,Healthy,Posterior,Left,"DP112_N,N,P L M,30,M.wav"
