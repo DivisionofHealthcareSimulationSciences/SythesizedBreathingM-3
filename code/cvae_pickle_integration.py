@@ -69,6 +69,7 @@ os.makedirs(output_dir, exist_ok=True)
 """PICKLE IMPLEMENTATION"""
 
 # Label mappings for categorical metadata
+# Label mappings for categorical metadata
 breath_sound_dict = {
     "sex": {},
     "patient_diagnosis": {},
@@ -84,11 +85,16 @@ inv_breath_sound = {
     "sex" : {}
 }
 
+metadata_df['ap_pos'] = metadata_df['ap_pos'].astype(str)
+metadata_df['lateral_pos'] = metadata_df['lateral_pos'].astype(str)
+metadata_df['sex'] = metadata_df['sex'].astype(str)
+
+
 # Extract unique labels for encoding
 unique_diagnoses = sorted(set(metadata_df['patient_diagnosis'].unique()))  # Unique diagnoses in metadata
-unique_ap_pos = set(metadata_df['ap_pos'].unique())  # Unique AP positions in metadata
-unique_lateral_pos = set(metadata_df['lateral_pos'].unique())  # Unique lateral positions in metadata
-unique_sex = set(metadata_df['sex'].unique())
+unique_ap_pos = sorted(set(metadata_df['ap_pos'].unique()))  # Unique AP positions in metadata
+unique_lateral_pos = sorted(set(metadata_df['lateral_pos'].unique()))  # Unique lateral positions in metadata
+unique_sex = sorted(set(metadata_df['sex'].unique()))
 
 # Assign unique integer values to each category
 for i, diag in enumerate(unique_diagnoses):
@@ -114,8 +120,8 @@ print("AP Position Encoding:", inv_breath_sound["ap_pos"])
 print("Lateral Position Encoding:", inv_breath_sound["lateral_pos"])
 
 # Global variables
-SAMPLE_RATE = 41100 # Value in most audio files
-MAX_LENGTH = SAMPLE_RATE * 8 # Assuming audios are 8 seconds long
+SAMPLE_RATE = 44100 # Value in most audio files
+MAX_LENGTH = SAMPLE_RATE * 15 # Assuming audios are 8 seconds long
 FRAME_SIZE = 2048
 HOP_LENGTH = 256 # Lower val = higher res
 N_MELS = 256
@@ -177,8 +183,20 @@ def play_audio(audio, output_device_id=4):
     #sd.play(audio, samplerate=SAMPLE_RATE, device=output_device_id)
     #sd.wait()
 
-"""## DATA LOADING"""
+#STFT instead
+def compute_stft(signal, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH):
+    stft = librosa.stft(signal, n_fft=n_fft, hop_length=hop_length)
+    magnitude = np.abs(stft)
+    phase = np.angle(stft)
+    return magnitude, phase
 
+def audio_from_stft(magnitude, phase, hop_length=HOP_LENGTH):
+    phase = np.unwrap(phase, axis=-1)
+    complex_stft = magnitude * np.exp(1j * phase)
+    signal = librosa.istft(complex_stft, hop_length=hop_length)
+    return signal
+
+"""## DATA LOADING"""
 def process_audio(file_name):
     base_name = os.path.basename(file_name)
     file_path = os.path.join(audio_dir, base_name)
@@ -188,8 +206,7 @@ def process_audio(file_name):
         return None
     signal = load_audio(file_path)
     padded_signal = apply_padding(signal)
-    mel_spec = extract_mel_spectrogram(padded_signal)
-    norm_mel_spec, original_min, original_max = min_max_normalize(mel_spec)
+    magnitude, phase = compute_stft(padded_signal)
 
     if base_name in metadata_df.index:
        metadata = metadata_df.loc[base_name].to_dict()
@@ -199,10 +216,9 @@ def process_audio(file_name):
     save_path = os.path.join(output_dir, base_name + ".pkl")
     with open(save_path, "wb") as f:
         pickle.dump({
-        "spectrogram": norm_mel_spec,
+        "magnitude": magnitude,
+        "phase": phase,
         "metadata": metadata,
-        "original_min": original_min,
-        "original_max": original_max
     }, f)
 
 for file_name in metadata_df.index:
@@ -259,12 +275,14 @@ for file_name in file_names:
     if file_name.endswith('.pkl'):
         with open(file_path, "rb") as f:
             data = pickle.load(f)
-            spectrogram = data["spectrogram"]
+            magnitude = data['magnitude']
+            phase = data['phase']
             metadata = data["metadata"]
 
-            X.append(spectrogram)
-            file_paths.append(file_path)
 
+            X.append(magnitude)
+            X.append(phase)
+            file_paths.append(file_path)
             # Create metadata-based label encoding
             sex = metadata.get("sex", "Unknown")
             sex_encoded = breath_sound_dict["sex"].get(sex,-1)
@@ -276,7 +294,7 @@ for file_name in file_names:
             ap_pos_encoded = breath_sound_dict["ap_pos"].get(ap_pos, 2)  # Automatically NaN if nothing
 
             lateral_pos = metadata.get("lateral_pos", "Unknown")
-            lateral_pos_encoded = breath_sound_dict["lateral_pos"].get(lateral_pos, 0)  # Automatically NaN if nothing
+            lateral_pos_encoded = breath_sound_dict["lateral_pos"].get(lateral_pos, 2)  # Automatically NaN if nothing
             age = metadata.get('age')
 
             label = [
@@ -287,6 +305,7 @@ for file_name in file_names:
                 float(lateral_pos_encoded)
             ]
             Y.append(label)
+            Y.append(label)
 
 # Convert to NumPy arrays
 # Perform train/test split (80/20)
@@ -294,12 +313,13 @@ X_arr = np.array (X)
 X_arr = np.array(X_arr)[..., np.newaxis]
 X_arr = np.transpose(X_arr, (0, 3, 1, 2))  # Adjust to (batch, channels, height, width)
 Y_arr = np.array(Y)
-
+print(X_arr.shape, Y_arr.shape)
 X_train, X_test, y_train, y_test =  train_test_split(X_arr, Y_arr, test_size=0.2)
 
 #Data Shuffle
 
 indices = np.arange(len(X_train))
+print(indices.shape)
 testIndices = np.arange(len(X_test))
 np.random.shuffle(indices)
 x_train = X_train[indices]
@@ -309,8 +329,8 @@ y_train = y_train[indices]
 batch_size = 128
 learning_rate = 0.0001
 hidden_size = 256 # Size of hidden layers
-num_epochs = 100000
-input_size = 256 * 1285 # Make sure this matches actual size!
+num_epochs = 10000
+input_size = 256 * 1640 # Make sure this matches actual size!
 labels_length = 5 # 5 labels total
 
 # Convert to tensors
@@ -399,7 +419,7 @@ def plot_gallery(images, h, w, n_row=3, n_col=6):
         plt.imshow(images[i].reshape(h, w), cmap = "plasma")
     plt.show()
 
-def vae_loss_fn(x, recon_x, mu, logvar, recon_scale=1, kl_scale=0.01): # CHANGED TO NOT RETURN NAN VALUES
+def vae_loss_fn(x, recon_x, mu, logvar, recon_scale=1, kl_scale=0.001): # CHANGED TO NOT RETURN NAN VALUES
     logvar = torch.clamp(logvar, min=-10, max=10)
     #MEAN REDUCTION TO REDUCE MASSIVE LOSSES
     reconstruction_loss = F.mse_loss(recon_x, x, reduction='mean')
@@ -434,7 +454,6 @@ def evaluate(losses, autoencoder, dataloader, flatten=True):
 
 In the following cells, the CVAE model will be implemented. Various attempts have been made by varying parameters and hyperparameters. The code will present one of the most efficient models in terms of generative and computational performance.
 """
-
 class CVAE(nn.Module):
     def check_for_nan(tensor, name="tensor"):
         if torch.isnan(tensor).any():
@@ -464,8 +483,9 @@ class CVAE(nn.Module):
         mu = self.fc21(x)
         logvar = self.fc22(x) + 1e-6
         return mu, logvar
-
+# Modified to include ability to decode labels alongside latent vector
     def decode(self, z):
+        #z = torch.cat((z,labels), 1)
         z = self.relu(self.fc3(z))
         return torch.sigmoid(self.fc4(z))
 
@@ -479,7 +499,7 @@ class CVAE(nn.Module):
     def forward(self,x, labels):
         mu, logvar = self.encode(x, labels)
         z = self.reparameterize(mu, logvar)
-        x = self.decode(z)
+        x = self.decode(z,labels)
         return x, mu, logvar
 
 def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs):
@@ -500,7 +520,7 @@ def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs
 
                 optim.zero_grad()
                 x,mu,logvar = net(batch, labels)
-                loss = vae_loss_fn(batch, x[:, :input_size], mu, logvar, recon_scale=1.0, kl_scale=0.01)
+                loss = vae_loss_fn(batch, x[:, :input_size], mu, logvar, recon_scale=1.0, kl_scale=0.001)
                 loss.backward()
 
                 # GRADIENT CLIPPING
@@ -510,11 +530,10 @@ def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs
             evaluate(validation_losses, net, test_dataloader, flatten=True)
             pbar_outer.update(1)
             tqdm.write(log_template.format(ep=i+1, v_loss=validation_losses[i]))
-    #plt.show()
+    plt.show()
     return validation_losses
 
 cvae = CVAE(input_size).to(DEVICE)
-
 history = train_cvae(cvae, train_dataset, val_dataset)
 torch.save(cvae, 'D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle2.pt')
 
