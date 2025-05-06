@@ -309,7 +309,7 @@ y_train = y_train[indices]
 batch_size = 128
 learning_rate = 0.0001
 hidden_size = 256 # Size of hidden layers
-num_epochs = 100000
+num_epochs = 10000
 input_size = 256 * 1285 # Make sure this matches actual size!
 labels_length = 5 # 5 labels total
 
@@ -326,6 +326,8 @@ y_test_tensor = torch.tensor(y_test, dtype=torch.float32)
 
 test_dataset = torch.utils.data.TensorDataset(x_test_tensor, y_test_tensor)
 test_loader1 = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=True)
+
+torch.save(test_dataset, 'D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/test_dataset.pt')
 
 train_dataset = train_loader1
 val_dataset = test_loader1
@@ -481,6 +483,16 @@ class CVAE(nn.Module):
         z = self.reparameterize(mu, logvar)
         x = self.decode(z)
         return x, mu, logvar
+    
+def save_checkpoint(model, optimizer, epoch, loss, filename='checkpoint.pt'):
+    state = {
+        'epoch': epoch,
+        'model_state_dict': model.state_dict(),
+        'optimizer_state_dict': optimizer.state_dict(),
+        'loss': loss,
+    }
+    torch.save(state, './checkpoints/' + filename)
+
 
 def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs):
     validation_losses = []
@@ -489,6 +501,10 @@ def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs
     log_template = "\nEpoch {ep:03d} val_loss {v_loss:0.4f}"
     with tqdm(desc="epoch", total=epochs) as pbar_outer:
         for i in range(epochs):
+            if i % 1000 == 0:
+                print(f"saving checkpoint at {i}")
+                save_checkpoint(net, optim, i, validation_losses, filename=f'checkpoint_{i}.pt')
+
             for batch, labels in dataloader:
                 batch = batch.to(DEVICE)
                 labels = master_encoding(labels).to(DEVICE)
@@ -516,9 +532,9 @@ def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs
 cvae = CVAE(input_size).to(DEVICE)
 
 history = train_cvae(cvae, train_dataset, val_dataset)
-torch.save(cvae, 'D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle2.pt')
+torch.save(cvae, 'D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle.pt')
 
-cvae = torch.load('D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle2.pt', weights_only=False)
+cvae = torch.load('D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle.pt', weights_only=False)
 cvae.eval()
 
 val_loss = history
