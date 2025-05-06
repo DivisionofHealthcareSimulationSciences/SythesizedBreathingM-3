@@ -44,6 +44,7 @@ from sklearn.manifold import TSNE
 from sklearn.decomposition import PCA
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+torch.cuda.empty_cache()
 
 print('Training on',DEVICE)
 
@@ -121,7 +122,7 @@ print("Lateral Position Encoding:", inv_breath_sound["lateral_pos"])
 
 # Global variables
 SAMPLE_RATE = 44100 # Value in most audio files
-MAX_LENGTH = SAMPLE_RATE * 15 # Assuming audios are 8 seconds long
+MAX_LENGTH = SAMPLE_RATE * 5 # Assuming audios are 8 seconds long
 FRAME_SIZE = 2048
 HOP_LENGTH = 256 # Lower val = higher res
 N_MELS = 256
@@ -207,6 +208,8 @@ def process_audio(file_name):
     signal = load_audio(file_path)
     padded_signal = apply_padding(signal)
     magnitude, phase = compute_stft(padded_signal)
+    #print(magnitude.shape, phase.shape)
+    print(phase)
 
     if base_name in metadata_df.index:
        metadata = metadata_df.loc[base_name].to_dict()
@@ -229,36 +232,39 @@ for file_name in metadata_df.index:
 
 
 
-# file_path = "/content/drive/My Drive/Breathing Sound Capstone Data/Spectrograms/101_1b1_Pr_sc_Meditron.wav.pkl"
-# with open(file_path, "rb") as f:
-#   data = pickle.load(f)
+file_path = "../data/Spectrograms/101_1b1_Pr_sc_Meditron.wav.pkl"
+with open(file_path, "rb") as f:
+  data = pickle.load(f)
 
-# metadata_for_sample = data['metadata']
-# spectrogram_for_sample = data['spectrogram']
+metadata_for_sample = data['metadata']
+phase_for_sample = data['phase']
+magnitude_for_sample = data['magnitude']
 
-# og_min = data.get('original_min')
-# og_max = data.get('original_max')
+og_min = data.get('original_min')
+og_max = data.get('original_max')
 
-# age = metadata_for_sample.get("age", "Unknown")
-# sex_code = metadata_for_sample.get("sex", "Unknown")
-# diagnosis_code = metadata_for_sample.get("patient_diagnosis", "Unknown")
-# ap_pos_code = metadata_for_sample.get("ap_pos", "Unknown")
-# lateral_pos_code = metadata_for_sample.get("lateral_pos", "Unknown")
+age = metadata_for_sample.get("age", "Unknown")
+sex_code = metadata_for_sample.get("sex", "Unknown")
+diagnosis_code = metadata_for_sample.get("patient_diagnosis", "Unknown")
+ap_pos_code = metadata_for_sample.get("ap_pos", "Unknown")
+lateral_pos_code = metadata_for_sample.get("lateral_pos", "Unknown")
 
-# # Decode values using the inverse lookup
-# sex = inv_breath_sound['sex'].get(sex_code, sex_code)
-# diagnosis = inv_breath_sound['patient_diagnosis'].get(diagnosis_code, diagnosis_code)
-# ap_pos = inv_breath_sound['ap_pos'].get(ap_pos_code, ap_pos_code)
-# lateral_pos = inv_breath_sound['lateral_pos'].get(lateral_pos_code, lateral_pos_code)
+# Decode values using the inverse lookup
+sex = inv_breath_sound['sex'].get(sex_code, sex_code)
+diagnosis = inv_breath_sound['patient_diagnosis'].get(diagnosis_code, diagnosis_code)
+ap_pos = inv_breath_sound['ap_pos'].get(ap_pos_code, ap_pos_code)
+lateral_pos = inv_breath_sound['lateral_pos'].get(lateral_pos_code, lateral_pos_code)
 
 
-# metadata_str = f"Age: {age}\nSex: {sex}\nDiagnosis: {diagnosis}\nAP Pos: {ap_pos}\nLateral Pos: {lateral_pos}"
+metadata_str = f"Age: {age}\nSex: {sex}\nDiagnosis: {diagnosis}\nAP Pos: {ap_pos}\nLateral Pos: {lateral_pos}"
 
-# plt.imshow(np.squeeze(spectrogram_for_sample), cmap="plasma")
+plt.imshow(np.squeeze(phase_for_sample))
+#plt.imshow(np.squeeze(magnitude_for_sample), cmap="plasma")
+print(phase_for_sample.max(), phase_for_sample.min())
 
-# plt.figtext(0.15, 0.7, metadata_str, fontsize=12, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.7))
+plt.figtext(0.15, 0.7, metadata_str, fontsize=12, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.7))
 
-# plt.show()
+plt.show()
 
 # from IPython.display import Audio
 # audio = spec_to_audio(spectrogram_for_sample, og_min, og_max )
@@ -278,10 +284,10 @@ for file_name in file_names:
             magnitude = data['magnitude']
             phase = data['phase']
             metadata = data["metadata"]
+            combined = np.concatenate([magnitude, phase], axis=1)
 
-
-            X.append(magnitude)
-            X.append(phase)
+            X.append(combined)
+            #X.append(phase)
             file_paths.append(file_path)
             # Create metadata-based label encoding
             sex = metadata.get("sex", "Unknown")
@@ -305,15 +311,18 @@ for file_name in file_names:
                 float(lateral_pos_encoded)
             ]
             Y.append(label)
-            Y.append(label)
+            #Y.append(label)
 
+#print(len(X), len(Y))
+#print(X[0], Y[0])
 # Convert to NumPy arrays
 # Perform train/test split (80/20)
 X_arr = np.array (X)
 X_arr = np.array(X_arr)[..., np.newaxis]
-X_arr = np.transpose(X_arr, (0, 3, 1, 2))  # Adjust to (batch, channels, height, width)
 Y_arr = np.array(Y)
 print(X_arr.shape, Y_arr.shape)
+
+X_arr = np.transpose(X_arr, (0, 3, 1, 2))  # Adjust to (batch, channels, height, width)
 X_train, X_test, y_train, y_test =  train_test_split(X_arr, Y_arr, test_size=0.2)
 
 #Data Shuffle
@@ -326,11 +335,11 @@ x_train = X_train[indices]
 y_train = y_train[indices]
 
 # More variables
-batch_size = 128
-learning_rate = 0.0001
+batch_size = 8
+learning_rate = 0.00001
 hidden_size = 256 # Size of hidden layers
 num_epochs = 10000
-input_size = 256 * 1640 # Make sure this matches actual size!
+input_size = 1025 * 1724 # Make sure this matches actual size!
 labels_length = 5 # 5 labels total
 
 # Convert to tensors
@@ -419,8 +428,8 @@ def plot_gallery(images, h, w, n_row=3, n_col=6):
         plt.imshow(images[i].reshape(h, w), cmap = "plasma")
     plt.show()
 
-def vae_loss_fn(x, recon_x, mu, logvar, recon_scale=1, kl_scale=0.001): # CHANGED TO NOT RETURN NAN VALUES
-    logvar = torch.clamp(logvar, min=-10, max=10)
+def vae_loss_fn(x, recon_x, mu, logvar, recon_scale=1, kl_scale=0.01): # CHANGED TO NOT RETURN NAN VALUES
+    logvar = torch.clamp(logvar, min=-1, max=1)
     #MEAN REDUCTION TO REDUCE MASSIVE LOSSES
     reconstruction_loss = F.mse_loss(recon_x, x, reduction='mean')
     KLD = -0.5 * torch.mean(1 + logvar - mu.pow(2) - logvar.exp())
@@ -466,7 +475,7 @@ class CVAE(nn.Module):
         input_size_with_label = input_size + labels_length
         hidden_size += labels_length
 
-        self.fc1 = nn.Linear(input_size_with_label, 512)
+        self.fc1 = nn.Linear(input_size_with_label, 512) #512)
         self.fc21 = nn.Linear(512, hidden_size)
         self.fc22 = nn.Linear(512, hidden_size)
 
@@ -477,6 +486,8 @@ class CVAE(nn.Module):
 
     def encode(self, x, labels):
         x = x.view(-1, input_size)
+        #print(x.shape, labels.shape)
+        # Concatenate the input and labels along the feature dimension
         x = torch.cat((x, labels), 1)
         x = self.relu(self.fc1(x))
         # ADDED small constant for stability
@@ -499,7 +510,7 @@ class CVAE(nn.Module):
     def forward(self,x, labels):
         mu, logvar = self.encode(x, labels)
         z = self.reparameterize(mu, logvar)
-        x = self.decode(z,labels)
+        x = self.decode(z)
         return x, mu, logvar
 
 def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs):
@@ -520,7 +531,7 @@ def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs
 
                 optim.zero_grad()
                 x,mu,logvar = net(batch, labels)
-                loss = vae_loss_fn(batch, x[:, :input_size], mu, logvar, recon_scale=1.0, kl_scale=0.001)
+                loss = vae_loss_fn(batch, x[:, :input_size], mu, logvar, recon_scale=1.0, kl_scale=0.01)
                 loss.backward()
 
                 # GRADIENT CLIPPING

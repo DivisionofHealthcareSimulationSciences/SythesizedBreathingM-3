@@ -138,6 +138,7 @@ class CVAE(nn.Module):
     
     def encode(self, x, labels):
         x = x.view(-1, input_size)
+        print(x.shape, labels.shape)
         x = torch.cat((x, labels), 1)
         x = self.relu(self.fc1(x))
         return self.fc21(x), self.fc22(x)
