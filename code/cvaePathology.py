@@ -313,7 +313,7 @@ if __name__ == "__main__":
 
     train_dataset = train_loader1
     val_dataset = test_loader1
-
+    print(train_dataset.shape, val_dataset.shape)
     print(y_train_tensor.shape, x_train_tensor.shape, y_test_tensor.shape, x_test_tensor.shape)
 
     cvae = CVAE(input_size).to(DEVICE)

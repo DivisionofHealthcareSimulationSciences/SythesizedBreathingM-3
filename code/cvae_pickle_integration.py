@@ -12,8 +12,7 @@ Original file is located at
 # !pip install sounddevice
 # !pip install noisereduce
 # !apt-get install portaudio19-dev
-
-from matplotlib import pyplot as plta
+from matplotlib import pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox, TextArea
 from matplotlib.colors import ListedColormap
 import matplotlib
@@ -21,11 +20,10 @@ import numpy as np
 import pandas as pd
 import os
 import pickle
-import matplotlib.pyplot as plt
 
 import librosa
 import soundfile as sf
-import sounddevice as sd
+#import sounddevice as sd
 import noisereduce as nr
 
 import torch
@@ -44,6 +42,8 @@ from sklearn.manifold import TSNE
 from sklearn.decomposition import PCA
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+print('Training on',DEVICE)
 torch.cuda.empty_cache()
 
 print('Training on',DEVICE)
@@ -121,8 +121,8 @@ print("AP Position Encoding:", inv_breath_sound["ap_pos"])
 print("Lateral Position Encoding:", inv_breath_sound["lateral_pos"])
 
 # Global variables
-SAMPLE_RATE = 44100 # Value in most audio files
-MAX_LENGTH = SAMPLE_RATE * 5 # Assuming audios are 8 seconds long
+SAMPLE_RATE = 22050 # Value in most audio files
+MAX_LENGTH = SAMPLE_RATE * 6 # Assuming audios are 10 seconds long
 FRAME_SIZE = 2048
 HOP_LENGTH = 256 # Lower val = higher res
 N_MELS = 256
@@ -147,57 +147,43 @@ def apply_padding(array):
         return trimmed_array
     return array
 
-#Mel in dB scale
-def extract_mel_spectrogram(signal, sample_rate=SAMPLE_RATE, frame_size=FRAME_SIZE, hop_length=HOP_LENGTH, n_mels=N_MELS):
-    mel_spectrogram = librosa.feature.melspectrogram(
-        y=signal, sr=sample_rate, n_fft=frame_size, hop_length=hop_length, n_mels=n_mels)
-    mel_spectrogram = librosa.power_to_db(mel_spectrogram, ref=np.max)
-    return mel_spectrogram
-
 def min_max_normalize(array):
     max_val = array.max()
     min_val = array.min()
     norm_array = (array - min_val) / (max_val - min_val)
     return norm_array, min_val, max_val
 
-def denormalize(norm_array, original_min, original_max, min_val, max_val):
-    array = (norm_array - min_val) / (max_val - min_val)
-    array = array * (original_max - original_min) + original_min
+def denormalize(norm_array, original_min, original_max):
+    #array = (norm_array - min_val) / (max_val - min_val)
+    #array = array * (original_max - original_min) + original_min
+    array = norm_array * (original_max - original_min) + original_min
     return array
-
-# Convert mel spec to audio in power scale
-def spec_to_audio(mel_spectrogram, original_min, original_max,sr=SAMPLE_RATE, hop_length=HOP_LENGTH, n_fft=FRAME_SIZE, n_iter=64):
-    mel_db = denormalize(mel_spectrogram,original_min,original_max,0,1)
-    mel_power = librosa.db_to_power(mel_db, ref=1.0)
-    audio = librosa.feature.inverse.mel_to_audio(
-        mel_power,
-        sr=sr,
-        hop_length=hop_length,
-        n_fft=n_fft,
-        n_iter=n_iter
-    )
-    return audio
-# Plays audio
-# Find out output_device_id value for ur device using print(sd.query_devices())
-def play_audio(audio, output_device_id=4):
-    Audio(audio, rate=41100)
-    #sd.play(audio, samplerate=SAMPLE_RATE, device=output_device_id)
-    #sd.wait()
-
 #STFT instead
 def compute_stft(signal, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH):
-    stft = librosa.stft(signal, n_fft=n_fft, hop_length=hop_length)
+    stft = librosa.stft(signal, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)
     magnitude = np.abs(stft)
     phase = np.angle(stft)
-    return magnitude, phase
+    magnitude_norm, mag_min, mag_max = min_max_normalize(magnitude)
+    phase_cos = np.cos(phase)
+    phase_sin = np.sin(phase)
 
-def audio_from_stft(magnitude, phase, hop_length=HOP_LENGTH):
-    phase = np.unwrap(phase, axis=-1)
+    return magnitude_norm, phase_cos, phase_sin, mag_min, mag_max
+
+def audio_from_stft(magnitude, cos_phase, sin_phase, hop_length=HOP_LENGTH, mag_min = 0, mag_max =1000):
+    phase = np.arctan2(sin_phase, cos_phase)
+    magnitude = denormalize(magnitude,mag_min,mag_max)
     complex_stft = magnitude * np.exp(1j * phase)
     signal = librosa.istft(complex_stft, hop_length=hop_length)
     return signal
 
-"""## DATA LOADING"""
+
+# Plays audio
+# Find out output_device_id value for ur device using print(sd.query_devices())
+def play_audio(audio, output_device_id=4):
+    Audio(audio, rate=22050)
+    #sd.play(audio, samplerate=SAMPLE_RATE, device=output_device_id)
+    #sd.wait()
+
 def process_audio(file_name):
     base_name = os.path.basename(file_name)
     file_path = os.path.join(audio_dir, base_name)
@@ -207,9 +193,7 @@ def process_audio(file_name):
         return None
     signal = load_audio(file_path)
     padded_signal = apply_padding(signal)
-    magnitude, phase = compute_stft(padded_signal)
-    #print(magnitude.shape, phase.shape)
-    print(phase)
+    magnitude, phase_cos, phase_sin, mag_min, mag_max = compute_stft(padded_signal)
 
     if base_name in metadata_df.index:
        metadata = metadata_df.loc[base_name].to_dict()
@@ -220,56 +204,107 @@ def process_audio(file_name):
     with open(save_path, "wb") as f:
         pickle.dump({
         "magnitude": magnitude,
-        "phase": phase,
+        "phase_cos": phase_cos,
+        "phase_sin" : phase_sin,
+        "max": mag_max,
+        "min": mag_min,
         "metadata": metadata,
     }, f)
+
+#Function to find matching min max val
+def find_val(metadata_filters, data_dict):
+    mins = []
+    maxes = []
+    filenames = []
+    keys_to_ignore = ['Unnamed', 'patient_number']
+
+    for file_name, data in data_dict.items():
+        metadata = data["metadata"]
+        filtered_metadata = {key: value for key, value in metadata.items() if key not in keys_to_ignore}
+        metadata_match = all(filtered_metadata.get(key) == value for key, value in metadata_filters.items())
+
+        if metadata_match:
+            mag_min = data["min"]
+            mag_max = data["max"]
+            mins.append(mag_min)
+            maxes.append(mag_max)
+            filenames.append(file_name)
+
+    return mins, maxes, filenames
 
 for file_name in metadata_df.index:
     file_path = os.path.join(audio_dir, file_name)
     process_audio(file_path)
 
 """Make sure audio works"""
+all_audio_data = {}
 
+folder_path = "D:/Development/audioGen/SythesizedBreathingM-3/data/BreathingSoundCapstoneData/CombinedDataset/CombinedDataset"
+file_names = sorted(os.listdir(folder_path))
+for file_name in file_names:
+    file_path = os.path.join(folder_path, file_name)
+    if file_name.endswith('.pkl'):
+        with open(file_path, "rb") as f:
+            data = pickle.load(f)
+            metadata = data.get("metadata")
+            mag_max = data.get("max")
+            mag_min = data.get('min')
+            all_audio_data[file_name] = {
+                "max": mag_max,
+                "min": mag_min,
+                "metadata": metadata
+            }
 
 
 file_path = "../data/Spectrograms/101_1b1_Pr_sc_Meditron.wav.pkl"
 with open(file_path, "rb") as f:
   data = pickle.load(f)
+  metadata_for_sample = data['metadata']
+  magnitude_for_sample = data['magnitude']
+  cos_phase = data['phase_cos']
+  sin_phase = data['phase_sin']
+  mag_max = data['max']
+  mag_min = data['min']
 
-metadata_for_sample = data['metadata']
-phase_for_sample = data['phase']
-magnitude_for_sample = data['magnitude']
+  print(magnitude_for_sample.shape)
+  print(cos_phase.shape)
+  print(mag_max)
+  print(mag_min)
 
-og_min = data.get('original_min')
-og_max = data.get('original_max')
+  age = metadata_for_sample.get("age", "Unknown")
+  sex_code = metadata_for_sample.get("sex", "Unknown")
+  diagnosis_code = metadata_for_sample.get("patient_diagnosis", "Unknown")
+  ap_pos_code = metadata_for_sample.get("ap_pos", "Unknown")
+  lateral_pos_code = metadata_for_sample.get("lateral_pos", "Unknown")
 
-age = metadata_for_sample.get("age", "Unknown")
-sex_code = metadata_for_sample.get("sex", "Unknown")
-diagnosis_code = metadata_for_sample.get("patient_diagnosis", "Unknown")
-ap_pos_code = metadata_for_sample.get("ap_pos", "Unknown")
-lateral_pos_code = metadata_for_sample.get("lateral_pos", "Unknown")
-
-# Decode values using the inverse lookup
-sex = inv_breath_sound['sex'].get(sex_code, sex_code)
-diagnosis = inv_breath_sound['patient_diagnosis'].get(diagnosis_code, diagnosis_code)
-ap_pos = inv_breath_sound['ap_pos'].get(ap_pos_code, ap_pos_code)
-lateral_pos = inv_breath_sound['lateral_pos'].get(lateral_pos_code, lateral_pos_code)
+  # Decode values using the inverse lookup
+  sex = inv_breath_sound['sex'].get(sex_code, sex_code)
+  diagnosis = inv_breath_sound['patient_diagnosis'].get(diagnosis_code, diagnosis_code)
+  ap_pos = inv_breath_sound['ap_pos'].get(ap_pos_code, ap_pos_code)
+  lateral_pos = inv_breath_sound['lateral_pos'].get(lateral_pos_code, lateral_pos_code)
 
 
-metadata_str = f"Age: {age}\nSex: {sex}\nDiagnosis: {diagnosis}\nAP Pos: {ap_pos}\nLateral Pos: {lateral_pos}"
+  metadata_str = f"Age: {age}\nSex: {sex}\nDiagnosis: {diagnosis}\nAP Pos: {ap_pos}\nLateral Pos: {lateral_pos}"
 
-plt.imshow(np.squeeze(phase_for_sample))
-#plt.imshow(np.squeeze(magnitude_for_sample), cmap="plasma")
-print(phase_for_sample.max(), phase_for_sample.min())
+  plt.figtext(0.05, 0.7, metadata_str, fontsize=12, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.7))
 
-plt.figtext(0.15, 0.7, metadata_str, fontsize=12, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.7))
+  frame_size = 2048
+  hop_length = 512
+  plt.subplot(1, 2, 1)
 
-plt.show()
+  librosa.display.specshow(librosa.amplitude_to_db(magnitude_for_sample, ref=np.max),
+                          y_axis='log', x_axis='time', cmap='plasma')
+  plt.title("Magnitude Spectrogram")
+  plt.colorbar(label = "Magnitude dB")
 
-# from IPython.display import Audio
-# audio = spec_to_audio(spectrogram_for_sample, og_min, og_max )
-# #play_audio(audio)
-# Audio(audio, rate=41100)
+  # Plot Phase Spectrogram
+  plt.subplot(1, 2, 2)
+  phase_for_sample = np.arctan2(sin_phase, cos_phase)
+  librosa.display.specshow(phase_for_sample, y_axis='log', x_axis='time', cmap='twilight')
+  plt.title("Phase Spectrogram")
+  plt.colorbar(label='Phase (radians)')
+  plt.tight_layout()
+  plt.show()
 
 X = []
 Y = []
@@ -282,12 +317,11 @@ for file_name in file_names:
         with open(file_path, "rb") as f:
             data = pickle.load(f)
             magnitude = data['magnitude']
-            phase = data['phase']
+            phase_cos = data['phase_cos']
+            phase_sin = data['phase_sin']
             metadata = data["metadata"]
-            combined = np.concatenate([magnitude, phase], axis=1)
-
+            combined = np.concatenate([magnitude,phase_cos,phase_sin], axis=1)
             X.append(combined)
-            #X.append(phase)
             file_paths.append(file_path)
             # Create metadata-based label encoding
             sex = metadata.get("sex", "Unknown")
@@ -311,18 +345,17 @@ for file_name in file_names:
                 float(lateral_pos_encoded)
             ]
             Y.append(label)
-            #Y.append(label)
 
 #print(len(X), len(Y))
 #print(X[0], Y[0])
 # Convert to NumPy arrays
 # Perform train/test split (80/20)
 X_arr = np.array (X)
+print(X_arr.shape)
 X_arr = np.array(X_arr)[..., np.newaxis]
-Y_arr = np.array(Y)
-print(X_arr.shape, Y_arr.shape)
-
 X_arr = np.transpose(X_arr, (0, 3, 1, 2))  # Adjust to (batch, channels, height, width)
+Y_arr = np.array(Y)
+
 X_train, X_test, y_train, y_test =  train_test_split(X_arr, Y_arr, test_size=0.2)
 
 #Data Shuffle
@@ -335,11 +368,11 @@ x_train = X_train[indices]
 y_train = y_train[indices]
 
 # More variables
-batch_size = 8
-learning_rate = 0.00001
+batch_size = 64
+learning_rate = 0.0001
 hidden_size = 256 # Size of hidden layers
 num_epochs = 10000
-input_size = 1025 * 1724 # Make sure this matches actual size!
+input_size = 1025 *1551 # Make sure this matches actual size!
 labels_length = 5 # 5 labels total
 
 # Convert to tensors
@@ -356,15 +389,24 @@ y_test_tensor = torch.tensor(y_test, dtype=torch.float32)
 test_dataset = torch.utils.data.TensorDataset(x_test_tensor, y_test_tensor)
 test_loader1 = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=True)
 
+torch.save(test_dataset, 'D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/test_dataset.pt')
+
 train_dataset = train_loader1
 val_dataset = test_loader1
 
 print(y_train_tensor.shape, x_train_tensor.shape, y_test_tensor.shape, x_test_tensor.shape)
 
-audio_index = 152
-
+audio_index = 2
 metadata_for_sample = y_train[audio_index]
+sample = x_train[audio_index]
+sample_squeeze = np.squeeze(sample, axis=0)
+magnitude_for_sample = sample_squeeze[:, :517]
+cos_phase_for_sample = sample_squeeze[:, 517:1034]
+sin_phase_for_sample = sample_squeeze[:, 1034:]
 
+print(magnitude_for_sample.shape)
+print(cos_phase_for_sample.shape)
+print(sin_phase_for_sample.shape)
 
 age = metadata_for_sample[0]
 sex = 'M' if metadata_for_sample[1] == 0 else 'F'
@@ -373,28 +415,26 @@ ap_pos = inv_breath_sound['ap_pos'].get(metadata_for_sample[3])
 lateral_pos = inv_breath_sound['lateral_pos'].get(metadata_for_sample[4])
 
 metadata_str = f"Age: {age}\nSex: {sex}\nDiagnosis: {diagnosis}\nAP Pos: {ap_pos}\nLateral Pos: {lateral_pos}"
-
-#plt.imshow(np.squeeze(x_train[audio_index]), cmap="plasma")
-
-
-#plt.figtext(0.05, 0.7, metadata_str, fontsize=12, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.7))
-
-#plt.show()
-
-# from IPython.display import Audio
-# mel_spectrogram = x_train[audio_index]
-# audio = spec_to_audio(mel_spectrogram, -80,0)
-# #play_audio(audio)
-# Audio(audio, rate=41100)
-
-# #sd.play(sound_audio, samplerate = sr)
-# #sd.wait()
+# Find matching max and min
+metadata_filters = {
+    "age": age,
+    "sex": sex,
+    "patient_diagnosis": diagnosis,
+    "ap_pos": ap_pos,
+    "lateral_pos": lateral_pos
+}
+mag_min = []
+mag_max = []
+filenames = []
+mag_min, mag_max, filenames = find_val(metadata_filters,all_audio_data)
+print(mag_min)
+print(mag_max)
+print(filenames)
 
 """## Utility functions
 
 The following functions will be used for visualizing the training progress, estimating the latent space, and reducing the dimensionality of the latent space in order to visualize it in a 2/3-dimensional space.
 """
-
 # Utility functions
 def master_encoding(labels):
         device = labels.device
@@ -428,8 +468,8 @@ def plot_gallery(images, h, w, n_row=3, n_col=6):
         plt.imshow(images[i].reshape(h, w), cmap = "plasma")
     plt.show()
 
-def vae_loss_fn(x, recon_x, mu, logvar, recon_scale=1, kl_scale=0.01): # CHANGED TO NOT RETURN NAN VALUES
-    logvar = torch.clamp(logvar, min=-1, max=1)
+def vae_loss_fn(x, recon_x, mu, logvar, recon_scale=1, kl_scale=0.001): # CHANGED TO NOT RETURN NAN VALUES
+    logvar = torch.clamp(logvar, min=-10, max=10)
     #MEAN REDUCTION TO REDUCE MASSIVE LOSSES
     reconstruction_loss = F.mse_loss(recon_x, x, reduction='mean')
     KLD = -0.5 * torch.mean(1 + logvar - mu.pow(2) - logvar.exp())
@@ -454,8 +494,8 @@ def evaluate(losses, autoencoder, dataloader, flatten=True):
         inp = inputs
         out = outputs
 
-    # with torch.set_grad_enabled(False):
-    #     plot_gallery([inp[0].detach().cpu(),out[0].detach().cpu()],256,1285,1,2)
+    #with torch.set_grad_enabled(False):
+        #plot_gallery([inp[0].detach().cpu(),out[0].detach().cpu()],1025,1551,1,2)
 
     losses.append((sum(loss_sum)/len(loss_sum)).item())
 
@@ -475,7 +515,7 @@ class CVAE(nn.Module):
         input_size_with_label = input_size + labels_length
         hidden_size += labels_length
 
-        self.fc1 = nn.Linear(input_size_with_label, 512) #512)
+        self.fc1 = nn.Linear(input_size_with_label, 512)
         self.fc21 = nn.Linear(512, hidden_size)
         self.fc22 = nn.Linear(512, hidden_size)
 
@@ -486,8 +526,6 @@ class CVAE(nn.Module):
 
     def encode(self, x, labels):
         x = x.view(-1, input_size)
-        #print(x.shape, labels.shape)
-        # Concatenate the input and labels along the feature dimension
         x = torch.cat((x, labels), 1)
         x = self.relu(self.fc1(x))
         # ADDED small constant for stability
@@ -512,6 +550,15 @@ class CVAE(nn.Module):
         z = self.reparameterize(mu, logvar)
         x = self.decode(z)
         return x, mu, logvar
+    
+def save_checkpoint(model, optimizer, epoch, loss, filename='checkpoint.pt'):
+    state = {
+        'epoch': epoch,
+        'model_state_dict': model.state_dict(),
+        'optimizer_state_dict': optimizer.state_dict(),
+        'loss': loss,
+    }
+    torch.save(state, './checkpoints/' + filename)
 
 def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs):
     validation_losses = []
@@ -520,6 +567,10 @@ def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs
     log_template = "\nEpoch {ep:03d} val_loss {v_loss:0.4f}"
     with tqdm(desc="epoch", total=epochs) as pbar_outer:
         for i in range(epochs):
+            if i % 1000 == 0:
+                print(f"saving checkpoint at {i}")
+                save_checkpoint(net, optim, i, validation_losses, filename=f'checkpoint_{i}.pt')
+
             for batch, labels in dataloader:
                 batch = batch.to(DEVICE)
                 labels = master_encoding(labels).to(DEVICE)
@@ -531,7 +582,7 @@ def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs
 
                 optim.zero_grad()
                 x,mu,logvar = net(batch, labels)
-                loss = vae_loss_fn(batch, x[:, :input_size], mu, logvar, recon_scale=1.0, kl_scale=0.01)
+                loss = vae_loss_fn(batch, x[:, :input_size], mu, logvar, recon_scale=1.0, kl_scale=0.001)
                 loss.backward()
 
                 # GRADIENT CLIPPING
@@ -541,85 +592,95 @@ def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs
             evaluate(validation_losses, net, test_dataloader, flatten=True)
             pbar_outer.update(1)
             tqdm.write(log_template.format(ep=i+1, v_loss=validation_losses[i]))
-    plt.show()
+    #plt.show()
     return validation_losses
 
-cvae = CVAE(input_size).to(DEVICE)
-history = train_cvae(cvae, train_dataset, val_dataset)
-torch.save(cvae, 'D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle2.pt')
+if __name__ == "__main__":
+    # Load the model
+    #model = torch.load('D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle.pt')
+    #model.eval()
 
-cvae = torch.load('D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle2.pt', weights_only=False)
-cvae.eval()
+    # Train the model
+    input_size = 1025 * 1551
+    #input_size = 1025 * 1551 + labels_length
+    #input_size = 1025 * 1551 + labels_length + 2*labels_length
+    #input_size = 1025 * 1551 + labels_length + 2*labels_length + 2*labels_length
+    cvae = CVAE(input_size).to(DEVICE)
+    history = train_cvae(cvae, train_dataset, val_dataset)
+    torch.save(cvae, 'D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle2.pt')
 
-val_loss = history
-plt.figure(figsize=(15, 9))
-plt.plot(val_loss, label="val_loss")
-plt.legend(loc='best')
-plt.xlabel("epochs")
-plt.ylabel("loss")
-plt.show()
+    cvae = torch.load('D:/Development/audioGen/SythesizedBreathingM-3/code/checkpoints/cvaePickle2.pt', weights_only=False)
+    cvae.eval()
 
-import warnings
-warnings.filterwarnings("ignore")
+    val_loss = history
+    plt.figure(figsize=(15, 9))
+    plt.plot(val_loss, label="val_loss")
+    plt.legend(loc='best')
+    plt.xlabel("epochs")
+    plt.ylabel("loss")
+    plt.show()
 
-val_loss = history
-plt.figure(figsize=(15, 9))
-plt.plot(val_loss, label="val_loss")
-plt.legend(loc='best')
-plt.xlabel("epochs")
-plt.ylabel("loss")
-plt.show()
+    import warnings
+    warnings.filterwarnings("ignore")
 
-"""## SOUND GENERATION"""
+    val_loss = history
+    plt.figure(figsize=(15, 9))
+    plt.plot(val_loss, label="val_loss")
+    plt.legend(loc='best')
+    plt.xlabel("epochs")
+    plt.ylabel("loss")
+    plt.show()
 
-# Make sure everything is on the same device as your model
-DEVICE = next(cvae.parameters()).device  # Automatically gets cuda or cpu
+    """## SOUND GENERATION"""
 
-audio_index_test = 5
+    # Make sure everything is on the same device as your model
+    DEVICE = next(cvae.parameters()).device  # Automatically gets cuda or cpu
 
-# ORIGINAL
-#makes sure output is 2D and detached from computational space and in numpy array
-original = x_test_tensor[audio_index_test].view(256, 1285).detach().cpu().numpy()
+    audio_index_test = 5
 
-# GENERATED
-test_labels = master_encoding(y_test_tensor.to(DEVICE))
-x_test_tensor = x_test_tensor.to(DEVICE)
+    # ORIGINAL
+    #makes sure output is 2D and detached from computational space and in numpy array
+    original = x_test_tensor[audio_index_test].view(256, 1285).detach().cpu().numpy()
 
-cvae_latent_space, _ = cvae.encode(x_test_tensor, test_labels)
-cvae_generation = cvae.decode(cvae_latent_space)
-#makes sure output is 2D and detached from computational space and in numpy array
-cvae_gen_array = cvae_generation[audio_index_test].view(256, 1285).detach().cpu().numpy()
+    # GENERATED
+    test_labels = master_encoding(y_test_tensor.to(DEVICE))
+    x_test_tensor = x_test_tensor.to(DEVICE)
 
-plt.figure(figsize=(10, 5))
-plt.subplot(1, 2, 1)
-plt.imshow(original, cmap="plasma")
-plt.title("ORIGINAL SOUND")
+    cvae_latent_space, _ = cvae.encode(x_test_tensor, test_labels)
+    cvae_generation = cvae.decode(cvae_latent_space)
+    #makes sure output is 2D and detached from computational space and in numpy array
+    cvae_gen_array = cvae_generation[audio_index_test].view(256, 1285).detach().cpu().numpy()
 
-plt.subplot(1, 2, 2)
-plt.imshow(cvae_gen_array, cmap="plasma")
-plt.title("GENERATED WITH CVAE")
-metadata_for_test_sample = y_test_tensor[audio_index_test]
+    plt.figure(figsize=(10, 5))
+    plt.subplot(1, 2, 1)
+    plt.imshow(original, cmap="plasma")
+    plt.title("ORIGINAL SOUND")
+
+    plt.subplot(1, 2, 2)
+    plt.imshow(cvae_gen_array, cmap="plasma")
+    plt.title("GENERATED WITH CVAE")
+    metadata_for_test_sample = y_test_tensor[audio_index_test]
 
 
-metadata_for_test_sample = y_test_tensor[audio_index_test].cpu()
+    metadata_for_test_sample = y_test_tensor[audio_index_test].cpu()
 
-age_t = metadata_for_test_sample[0].item()
-sex_t = 'M' if metadata_for_test_sample[1].item() == 0 else 'F'
-diagnosis_t = inv_breath_sound['patient_diagnosis'].get(metadata_for_test_sample[2].item())
-ap_pos_t = inv_breath_sound['ap_pos'].get(metadata_for_test_sample[3].item())
-lateral_pos_t = inv_breath_sound['lateral_pos'].get(metadata_for_test_sample[4].item())
+    age_t = metadata_for_test_sample[0].item()
+    sex_t = 'M' if metadata_for_test_sample[1].item() == 0 else 'F'
+    diagnosis_t = inv_breath_sound['patient_diagnosis'].get(metadata_for_test_sample[2].item())
+    ap_pos_t = inv_breath_sound['ap_pos'].get(metadata_for_test_sample[3].item())
+    lateral_pos_t = inv_breath_sound['lateral_pos'].get(metadata_for_test_sample[4].item())
 
-metadata_str_t = f"Age: {age_t}\nSex: {sex_t}\nDiagnosis: {diagnosis_t}\nAP Pos: {ap_pos_t}\nLateral Pos: {lateral_pos_t}"
+    metadata_str_t = f"Age: {age_t}\nSex: {sex_t}\nDiagnosis: {diagnosis_t}\nAP Pos: {ap_pos_t}\nLateral Pos: {lateral_pos_t}"
 
-plt.figtext(0.10, 0.7, metadata_str_t, fontsize=12, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.7))
-plt.show()
+    plt.figtext(0.10, 0.7, metadata_str_t, fontsize=12, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.7))
+    plt.show()
 
-from IPython.display import Audio
-audio = spec_to_audio(original, -80,0)
-#play_audio(audio)
-Audio(audio, rate=41100)
+    from IPython.display import Audio
+    audio = spec_to_audio(original, -80,0)
+    #play_audio(audio)
+    Audio(audio, rate=41100)
 
-from IPython.display import Audio
-audio = spec_to_audio(cvae_gen_array, -80,0)
-#play_audio(audio)
-Audio(audio, rate=41100)
+    from IPython.display import Audio
+    audio = spec_to_audio(cvae_gen_array, -80,0)
+    #play_audio(audio)
+    Audio(audio, rate=41100)
