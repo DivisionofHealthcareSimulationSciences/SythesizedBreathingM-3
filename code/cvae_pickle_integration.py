@@ -304,7 +304,7 @@ with open(file_path, "rb") as f:
   plt.title("Phase Spectrogram")
   plt.colorbar(label='Phase (radians)')
   plt.tight_layout()
-  plt.show()
+  #plt.show()
 
 X = []
 Y = []
@@ -368,8 +368,8 @@ x_train = X_train[indices]
 y_train = y_train[indices]
 
 # More variables
-batch_size = 64
-learning_rate = 0.0001
+batch_size = 128
+learning_rate = 0.00001
 hidden_size = 256 # Size of hidden layers
 num_epochs = 10000
 input_size = 1025 *1551 # Make sure this matches actual size!
@@ -567,7 +567,7 @@ def train_cvae(net, dataloader, test_dataloader, flatten=True, epochs=num_epochs
     log_template = "\nEpoch {ep:03d} val_loss {v_loss:0.4f}"
     with tqdm(desc="epoch", total=epochs) as pbar_outer:
         for i in range(epochs):
-            if i % 1000 == 0:
+            if i % 20 == 0:
                 print(f"saving checkpoint at {i}")
                 save_checkpoint(net, optim, i, validation_losses, filename=f'checkpoint_{i}.pt')
 
